@@ -28,9 +28,9 @@ const AboutSection = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold heading-gradient mb-6">About Quan Financial</h2>
+            <h2 className="text-3xl md:text-4xl font-bold heading-gradient mb-6">About Future Waves Investment</h2>
             <p className="text-lg text-gray-700 mb-4">
-              Quan Financial Investments Ltd is a premier investment management firm dedicated to helping our clients achieve their financial goals through strategic investment solutions and wealth management services.
+              Future Waves Investment Ltd is a premier investment management firm dedicated to helping our clients achieve their financial goals through strategic investment solutions and wealth management services.
             </p>
             <p className="text-lg text-gray-700 mb-6">
               Founded on principles of integrity, transparency, and client focus, we leverage decades of combined experience to navigate complex financial markets and deliver consistent results.

@@ -22,7 +22,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {isMobile ? (
-        <MobileHeader title="Quan Financial" showBackButton={false} />
+        <MobileHeader title="Future Waves Investment" showBackButton={false} />
       ) : (
         <Navbar />
       )}

@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link to="/" className="text-xl md:text-2xl font-bold text-quan-blue">
-              Quan <span className="text-quan-gold">Financial</span>
+              Future Waves <span className="text-quan-gold">Investment</span>
             </Link>
           </div>
 

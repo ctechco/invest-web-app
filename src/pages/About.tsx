@@ -15,7 +15,7 @@ const About = () => {
         <section className="bg-quan-blue text-white py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">About Quan Financial</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Waves Investment</h1>
               <p className="text-lg opacity-90">
                 Our mission is to empower our clients to achieve financial freedom through expert guidance and personalized investment strategies.
               </p>
@@ -31,7 +31,7 @@ const About = () => {
               
               <div className="prose max-w-none text-gray-700">
                 <p className="text-lg mb-4">
-                  Founded in 2008, Quan Financial Investments Ltd was established with a clear vision: to provide exceptional financial advice and investment services that truly put clients first. Our founders, having witnessed the impact of the global financial crisis, were determined to create a firm that operated with transparency, integrity, and a genuine commitment to client success.
+                  Founded in 2008, Future Waves Investment Ltd was established with a clear vision: to provide exceptional financial advice and investment services that truly put clients first. Our founders, having witnessed the impact of the global financial crisis, were determined to create a firm that operated with transparency, integrity, and a genuine commitment to client success.
                 </p>
                 
                 <p className="text-lg mb-4">
@@ -39,7 +39,7 @@ const About = () => {
                 </p>
                 
                 <p className="text-lg mb-4">
-                  Today, Quan Financial serves a diverse clientele from individuals and families to corporations and institutions. Our comprehensive approach to wealth management combines traditional financial wisdom with innovative strategies, allowing us to deliver consistent, long-term results for our clients.
+                  Today, Future Waves Investment serves a diverse clientele from individuals and families to corporations and institutions. Our comprehensive approach to wealth management combines traditional financial wisdom with innovative strategies, allowing us to deliver consistent, long-term results for our clients.
                 </p>
                 
                 <p className="text-lg">
