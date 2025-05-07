@@ -1,50 +1,32 @@
 
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import CTASection from '@/components/CTASection';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import MobileHeader from '@/components/MobileHeader';
+import ServiceCard from '@/components/ServiceCard';
+import ServiceDetailDrawer from '@/components/ServiceDetailDrawer';
 import { 
   Briefcase, CheckCircle, TrendingUp, Shield, 
   Users, BarChart3, Calculator, LineChart, 
   Building, Landmark, FileText, PiggyBank
 } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import CTASection from '@/components/CTASection';
 
-const ServiceDetailCard = ({ 
-  icon: Icon, 
-  title, 
-  description,
-  benefits
-}: { 
-  icon: React.ElementType, 
-  title: string, 
-  description: string,
-  benefits: string[]
-}) => (
-  <Card className="border-none shadow-lg hover:shadow-xl transition-shadow h-full">
-    <CardHeader className="pb-2">
-      <div className="bg-blue-50 p-3 w-fit rounded-lg mb-4">
-        <Icon className="h-6 w-6 text-quan-blue" />
-      </div>
-      <CardTitle className="text-xl">{title}</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <CardDescription className="text-gray-600 mb-4">{description}</CardDescription>
-      <h4 className="font-semibold text-quan-blue mb-3">Key Benefits:</h4>
-      <ul className="space-y-2">
-        {benefits.map((benefit, index) => (
-          <li key={index} className="flex items-center text-sm text-gray-600">
-            <CheckCircle className="h-4 w-4 text-quan-gold mr-2 flex-shrink-0" />
-            <span>{benefit}</span>
-          </li>
-        ))}
-      </ul>
-    </CardContent>
-  </Card>
-);
+type Service = {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  benefits: string[];
+};
 
 const Services = () => {
-  const services = [
+  const isMobile = useIsMobile();
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const services: Service[] = [
     {
       icon: Briefcase,
       title: 'Investment Management',
@@ -179,6 +161,79 @@ const Services = () => {
     },
   ];
 
+  const categories = [
+    { id: 'all', label: 'All' },
+    { id: 'investment', label: 'Investment' },
+    { id: 'planning', label: 'Planning' },
+    { id: 'advisory', label: 'Advisory' }
+  ];
+
+  const handleServicePress = (service: Service) => {
+    setSelectedService(service);
+    setIsDrawerOpen(true);
+  };
+
+  const filteredServices = activeCategory === 'all' 
+    ? services 
+    : services.filter(service => {
+        if (activeCategory === 'investment') {
+          return ['Investment Management', 'Alternative Investments', 'Corporate Services'].includes(service.title);
+        } else if (activeCategory === 'planning') {
+          return ['Wealth Planning', 'Retirement Planning', 'Estate Planning', 'Financial Planning'].includes(service.title);
+        } else if (activeCategory === 'advisory') {
+          return ['Risk Management', 'Tax Optimization', 'Financial Education', 'Trust Services'].includes(service.title);
+        }
+        return true;
+      });
+
+  if (isMobile) {
+    return (
+      <>
+        <MobileHeader title="Our Services" showBackButton={false} />
+        
+        {/* Category filter */}
+        <div className="px-4 py-3 overflow-x-auto">
+          <div className="flex space-x-2">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`px-4 py-2 rounded-full text-sm whitespace-nowrap ${
+                  activeCategory === category.id
+                    ? 'bg-quan-blue text-white'
+                    : 'bg-gray-100 text-gray-700'
+                }`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {/* Services list */}
+        <div className="p-4">
+          {filteredServices.map((service, index) => (
+            <ServiceCard
+              key={index}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              onPress={() => handleServicePress(service)}
+            />
+          ))}
+        </div>
+        
+        {/* Service detail drawer */}
+        <ServiceDetailDrawer
+          service={selectedService}
+          isOpen={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
+        />
+      </>
+    );
+  }
+
+  // Desktop view remains mostly the same
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -208,13 +263,24 @@ const Services = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
-                <ServiceDetailCard 
-                  key={index}
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  benefits={service.benefits}
-                />
+                <div key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow h-full bg-white rounded-lg">
+                  <div className="p-6">
+                    <div className="bg-blue-50 p-3 w-fit rounded-lg mb-4">
+                      <service.icon className="h-6 w-6 text-quan-blue" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <h4 className="font-semibold text-quan-blue mb-3">Key Benefits:</h4>
+                    <ul className="space-y-2">
+                      {service.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-center text-sm text-gray-600">
+                          <CheckCircle className="h-4 w-4 text-quan-gold mr-2 flex-shrink-0" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

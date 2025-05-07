@@ -7,8 +7,13 @@ export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
 
   React.useEffect(() => {
+    // Initial check using both screen width and user agent
     const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      const byWidth = window.innerWidth < MOBILE_BREAKPOINT
+      const byUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      
+      // Consider a device mobile if either condition is met
+      setIsMobile(byWidth || byUserAgent)
     }
     
     // Initial check
