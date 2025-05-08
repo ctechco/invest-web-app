@@ -83,8 +83,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
       >
-        <text x="0" y="18" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVES</text>
-        <text x="0" y="36" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff">INVESTMENT</text>
+        <text x="0" y="18" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVE</text>
+        <text x="0" y="36" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff"></text>
       </svg>
     );
   }
@@ -123,8 +123,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       
       {/* Text */}
       <g transform="translate(60,0)">
-        <text x="0" y="25" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVES</text>
-        <text x="0" y="45" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff">INVESTMENT</text>
+        <text x="0" y="25" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVE</text>
+        <text x="0" y="45" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff"></text>
       </g>
     </svg>
   );
