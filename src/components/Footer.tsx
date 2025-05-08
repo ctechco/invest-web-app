@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Future Waves <span className="text-quan-gold">Investment</span></h3>
+            <div className="mb-4">
+              <Logo variant="full" size="md" />
+            </div>
             <p className="text-gray-300 mb-4">
               Innovative investment solutions tailored to help you achieve your financial goals with confidence.
             </p>

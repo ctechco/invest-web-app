@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import Logo from './Logo';
 
 interface MobileHeaderProps {
   title: string;
@@ -31,9 +32,15 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ title, showBackButton = tru
           <ArrowLeft className="w-5 h-5" />
         </button>
       )}
-      <h1 className="text-xl font-bold text-quan-blue flex-1 text-center">
-        {title}
-      </h1>
+      {location.pathname === '/' ? (
+        <div className="flex-1 flex justify-center">
+          <Logo variant="full" size="sm" />
+        </div>
+      ) : (
+        <h1 className="text-xl font-bold text-quan-blue flex-1 text-center">
+          {title}
+        </h1>
+      )}
     </header>
   );
 };

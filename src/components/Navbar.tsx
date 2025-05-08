@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { LogoLink } from './Logo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,9 +42,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Link to="/" className="text-xl md:text-2xl font-bold text-quan-blue">
-              Future Waves <span className="text-quan-gold">Investment</span>
-            </Link>
+            <LogoLink to="/" size={isMobile ? "sm" : "md"} />
           </div>
 
           {/* Desktop Navigation */}
