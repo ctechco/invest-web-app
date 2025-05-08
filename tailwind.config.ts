@@ -54,10 +54,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				quan: {
-					blue: '#0d2b5e',
-					gold: '#d4af37',
+					blue: '#9b87f5',    // Changed from blue to purple
+					gold: '#FFFFFF',    // Changed from gold to white
 					light: '#f8f9fa',
-					dark: '#1a1a2e',
+					dark: '#1A1F2C',    // Updated to a deeper purple-tinted dark
 					gray: '#6c757d',
 				},
 				sidebar: {

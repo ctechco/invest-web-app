@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221 83% 21%;
+    --primary: 260 45% 74%;  /* Updated to purple */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -31,7 +31,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 21%;
+    --ring: 260 45% 74%;  /* Updated to purple */
 
     --radius: 0.5rem;
 
@@ -55,7 +55,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 260 45% 74%;  /* Updated to purple */
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -96,14 +96,14 @@
 
 @layer components {
   .heading-gradient {
-    @apply bg-gradient-to-r from-quan-blue to-quan-dark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#9b87f5] to-[#6E59A5] bg-clip-text text-transparent;
   }
   
   .btn-primary {
-    @apply bg-quan-blue text-white hover:bg-blue-900 transition-colors;
+    @apply bg-[#9b87f5] text-white hover:bg-[#7E69AB] transition-colors;
   }
   
   .btn-secondary {
-    @apply bg-quan-gold text-quan-dark hover:bg-amber-400 transition-colors;
+    @apply bg-white text-[#6E59A5] hover:bg-gray-100 transition-colors;
   }
 }

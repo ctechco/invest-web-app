@@ -37,7 +37,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ title, showBackButton = tru
           <Logo variant="full" size="sm" />
         </div>
       ) : (
-        <h1 className="text-xl font-bold text-quan-blue flex-1 text-center">
+        <h1 className="text-xl font-bold text-[#9b87f5] flex-1 text-center">
           {title}
         </h1>
       )}

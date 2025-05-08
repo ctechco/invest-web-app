@@ -52,19 +52,19 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         {/* Waves symbol */}
         <path 
           d="M12 44C20 36 28 52 36 44C44 36 52 44 52 44" 
-          stroke="#0d2b5e" 
+          stroke="#9b87f5" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
         <path 
           d="M12 32C20 24 28 40 36 32C44 24 52 32 52 32" 
-          stroke="#0d2b5e" 
+          stroke="#9b87f5" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
         <path 
           d="M12 20C20 12 28 28 36 20C44 12 52 20 52 20" 
-          stroke="#d4af37" 
+          stroke="#ffffff" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
@@ -83,8 +83,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
       >
-        <text x="0" y="18" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#0d2b5e">FUTURE WAVES</text>
-        <text x="0" y="36" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#d4af37">INVESTMENT</text>
+        <text x="0" y="18" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVES</text>
+        <text x="0" y="36" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff">INVESTMENT</text>
       </svg>
     );
   }
@@ -103,19 +103,19 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       <g transform="translate(0,10) scale(0.65)">
         <path 
           d="M12 44C20 36 28 52 36 44C44 36 52 44 52 44" 
-          stroke="#0d2b5e" 
+          stroke="#9b87f5" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
         <path 
           d="M12 32C20 24 28 40 36 32C44 24 52 32 52 32" 
-          stroke="#0d2b5e" 
+          stroke="#9b87f5" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
         <path 
           d="M12 20C20 12 28 28 36 20C44 12 52 20 52 20" 
-          stroke="#d4af37" 
+          stroke="#ffffff" 
           strokeWidth="4" 
           strokeLinecap="round"
         />
@@ -123,8 +123,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       
       {/* Text */}
       <g transform="translate(60,0)">
-        <text x="0" y="25" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#0d2b5e">FUTURE WAVES</text>
-        <text x="0" y="45" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#d4af37">INVESTMENT</text>
+        <text x="0" y="25" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVES</text>
+        <text x="0" y="45" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff">INVESTMENT</text>
       </g>
     </svg>
   );
