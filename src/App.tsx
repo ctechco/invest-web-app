@@ -11,6 +11,13 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AppShell from "./components/AppShell";
+import Dashboard from "./pages/Dashboard";
+import MarketData from "./pages/MarketData";
+import InvestmentTools from "./pages/InvestmentTools";
+import Education from "./pages/Education";
+import Blog from "./pages/Blog";
+import Support from "./pages/Support";
+import Authentication from "./pages/Authentication";
 import "./App.css";
 
 // Create a client
@@ -49,6 +56,13 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/market-data" element={<MarketData />} />
+                <Route path="/tools" element={<InvestmentTools />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/support" element={<Support />} />
+                <Route path="/auth" element={<Authentication />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Briefcase, Users, MessageSquare } from 'lucide-react';
+import { Home, BarChart2, PieChart, BookOpen, MessageSquare, User } from 'lucide-react';
 
 const MobileNavBar: React.FC = () => {
   const location = useLocation();
@@ -16,22 +16,28 @@ const MobileNavBar: React.FC = () => {
           isActive={location.pathname === '/'} 
         />
         <NavItem 
-          to="/services" 
-          icon={<Briefcase className="w-6 h-6" />} 
-          label="Services" 
-          isActive={location.pathname === '/services'} 
+          to="/dashboard" 
+          icon={<PieChart className="w-6 h-6" />} 
+          label="Dashboard" 
+          isActive={location.pathname === '/dashboard'} 
         />
         <NavItem 
-          to="/about" 
-          icon={<Users className="w-6 h-6" />} 
-          label="About" 
-          isActive={location.pathname === '/about'} 
+          to="/market-data" 
+          icon={<BarChart2 className="w-6 h-6" />} 
+          label="Markets" 
+          isActive={location.pathname === '/market-data'} 
         />
         <NavItem 
-          to="/contact" 
+          to="/education" 
+          icon={<BookOpen className="w-6 h-6" />} 
+          label="Learn" 
+          isActive={location.pathname === '/education'} 
+        />
+        <NavItem 
+          to="/support" 
           icon={<MessageSquare className="w-6 h-6" />} 
-          label="Contact" 
-          isActive={location.pathname === '/contact'} 
+          label="Support" 
+          isActive={location.pathname === '/support'} 
         />
       </div>
     </nav>
@@ -50,7 +56,7 @@ const NavItem: React.FC<NavItemProps> = ({ to, icon, label, isActive }) => {
     <Link 
       to={to} 
       className={`flex flex-col items-center justify-center w-full p-1 ${
-        isActive ? 'text-quan-blue' : 'text-gray-500'
+        isActive ? 'text-[#9b87f5]' : 'text-gray-500'
       }`}
     >
       {icon}
