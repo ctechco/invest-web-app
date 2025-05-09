@@ -53,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				quan: {
+				futurewave: {
 					blue: '#9b87f5',    // Changed from blue to purple
 					gold: '#FFFFFF',    // Changed from gold to white
 					light: '#f8f9fa',

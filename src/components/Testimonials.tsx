@@ -9,7 +9,7 @@ const StarRating = ({ rating }: { rating: number }) => {
       {[...Array(5)].map((_, i) => (
         <Star 
           key={i} 
-          className={`h-4 w-4 ${i < rating ? 'fill-quan-gold text-quan-gold' : 'text-gray-300'}`} 
+          className={`h-4 w-4 ${i < rating ? 'fill-futurewave-gold text-futurewave-gold' : 'text-gray-300'}`} 
         />
       ))}
     </div>
@@ -42,13 +42,13 @@ const TestimonialCard = ({
 const Testimonials = () => {
   const testimonials = [
     {
-      content: "Quan Financial has transformed our retirement planning. Their expert team guided us through diversifying our portfolio, resulting in consistent growth even during market fluctuations.",
+      content: "Future Wave has transformed our retirement planning. Their expert team guided us through diversifying our portfolio, resulting in consistent growth even during market fluctuations.",
       author: "Robert Johnson",
       position: "Retired CEO",
       rating: 5
     },
     {
-      content: "I've been with Quan for over 5 years now and the level of personal attention and expertise is unmatched. They truly understand my financial goals and have delivered exceptional results.",
+      content: "I've been with Future Wave for over 5 years now and the level of personal attention and expertise is unmatched. They truly understand my financial goals and have delivered exceptional results.",
       author: "Sarah Williams",
       position: "Business Owner",
       rating: 5
@@ -67,7 +67,7 @@ const Testimonials = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold heading-gradient mb-4">What Our Clients Say</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Hear from our satisfied clients about their experience with Quan Financial Investments.
+            Hear from our satisfied clients about their experience with Future Wave Investments.
           </p>
         </div>
 

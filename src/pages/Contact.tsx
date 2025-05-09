@@ -12,7 +12,7 @@ const Contact = () => {
       
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="bg-quan-blue text-white py-16">
+        <section className="bg-futurewave-blue text-white py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
@@ -38,7 +38,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-quan-blue mb-3">London Headquarters</h3>
+                    <h3 className="text-xl font-bold text-futurewave-blue mb-3">London Headquarters</h3>
                     <address className="not-italic text-gray-700">
                       <p>123 Financial District</p>
                       <p>London, UK</p>
@@ -49,9 +49,9 @@ const Contact = () => {
                       <p className="text-gray-700"><strong>Email:</strong> london@futurewave.com</p>
                     </div>
                     <div className="mt-4 flex items-start">
-                      <Clock className="h-5 w-5 mr-2 text-quan-blue mt-0.5" />
+                      <Clock className="h-5 w-5 mr-2 text-futurewave-blue mt-0.5" />
                       <div>
-                        <p className="font-medium text-quan-blue">Office Hours:</p>
+                        <p className="font-medium text-futurewave-blue">Office Hours:</p>
                         <p className="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
                         <p className="text-gray-700">Saturday - Sunday: Closed</p>
                       </div>
@@ -67,7 +67,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-quan-blue mb-3">New York Office</h3>
+                    <h3 className="text-xl font-bold text-futurewave-blue mb-3">New York Office</h3>
                     <address className="not-italic text-gray-700">
                       <p>456 Wall Street</p>
                       <p>New York, NY</p>
@@ -78,9 +78,9 @@ const Contact = () => {
                       <p className="text-gray-700"><strong>Email:</strong> newyork@futurewave.com</p>
                     </div>
                     <div className="mt-4 flex items-start">
-                      <Clock className="h-5 w-5 mr-2 text-quan-blue mt-0.5" />
+                      <Clock className="h-5 w-5 mr-2 text-futurewave-blue mt-0.5" />
                       <div>
-                        <p className="font-medium text-quan-blue">Office Hours:</p>
+                        <p className="font-medium text-futurewave-blue">Office Hours:</p>
                         <p className="text-gray-700">Monday - Friday: 8:00 AM - 6:00 PM</p>
                         <p className="text-gray-700">Saturday - Sunday: Closed</p>
                       </div>

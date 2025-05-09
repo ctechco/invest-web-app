@@ -12,7 +12,7 @@ const About = () => {
       
       <main className="flex-grow pt-24">
         {/* Hero Section */}
-        <section className="bg-quan-blue text-white py-16">
+        <section className="bg-futurewave-blue text-white py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Wave</h1>
@@ -59,9 +59,9 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <CheckCircle className="h-6 w-6 text-quan-blue" />
+                    <CheckCircle className="h-6 w-6 text-futurewave-blue" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-quan-blue">Integrity</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Integrity</h3>
                   <p className="text-gray-700">
                     We uphold the highest ethical standards in all our dealings, ensuring transparency and honesty in every interaction with our clients and partners.
                   </p>
@@ -69,9 +69,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <Users className="h-6 w-6 text-quan-blue" />
+                    <Users className="h-6 w-6 text-futurewave-blue" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-quan-blue">Client Focus</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Client Focus</h3>
                   <p className="text-gray-700">
                     Our clients' interests always come first. We take time to understand their unique needs and goals, crafting personalized strategies for their success.
                   </p>
@@ -79,9 +79,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <TrendingUp className="h-6 w-6 text-quan-blue" />
+                    <TrendingUp className="h-6 w-6 text-futurewave-blue" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-quan-blue">Excellence</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Excellence</h3>
                   <p className="text-gray-700">
                     We strive for excellence in every aspect of our operations, continuously enhancing our expertise, services, and the value we provide to our clients.
                   </p>
@@ -89,9 +89,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <Award className="h-6 w-6 text-quan-blue" />
+                    <Award className="h-6 w-6 text-futurewave-blue" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-quan-blue">Innovation</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Innovation</h3>
                   <p className="text-gray-700">
                     We embrace change and continuously seek innovative solutions to enhance our services and adapt to evolving market conditions and client needs.
                   </p>

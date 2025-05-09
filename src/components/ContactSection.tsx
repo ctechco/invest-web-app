@@ -57,7 +57,7 @@ const ContactSection = () => {
 
         <div className="grid md:grid-cols-2 gap-10 items-start max-w-5xl mx-auto">
           <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-quan-blue mb-6">Get In Touch</h3>
+            <h3 className="text-2xl font-bold text-futurewave-blue mb-6">Get In Touch</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
@@ -120,12 +120,12 @@ const ContactSection = () => {
           </div>
           
           <div>
-            <div className="bg-quan-blue text-white p-8 rounded-lg shadow-lg mb-8">
+            <div className="bg-futurewave-blue text-white p-8 rounded-lg shadow-lg mb-8">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MapPin className="h-5 w-5 mr-3 mt-1 text-quan-gold" />
+                  <MapPin className="h-5 w-5 mr-3 mt-1 text-futurewave-gold" />
                   <div>
                     <p className="font-medium">Office Address</p>
                     <p className="text-gray-300">123 Financial District,</p>
@@ -134,16 +134,16 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-start">
-                  <Mail className="h-5 w-5 mr-3 mt-1 text-quan-gold" />
+                  <Mail className="h-5 w-5 mr-3 mt-1 text-futurewave-gold" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-gray-300">info@quanfinancial.com</p>
-                    <p className="text-gray-300">support@quanfinancial.com</p>
+                    <p className="text-gray-300">info@futurewavefinancial.com</p>
+                    <p className="text-gray-300">support@futurewavefinancial.com</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <Phone className="h-5 w-5 mr-3 mt-1 text-quan-gold" />
+                  <Phone className="h-5 w-5 mr-3 mt-1 text-futurewave-gold" />
                   <div>
                     <p className="font-medium">Phone</p>
                     <p className="text-gray-300">+44 20 1234 5678</p>
@@ -154,7 +154,7 @@ const ContactSection = () => {
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-quan-blue mb-4">Schedule a Consultation</h3>
+              <h3 className="text-xl font-bold text-futurewave-blue mb-4">Schedule a Consultation</h3>
               <p className="text-gray-600 mb-6">Book a free 30-minute consultation with our investment experts to discuss your financial needs.</p>
               <Button className="w-full btn-secondary flex items-center justify-center">
                 Schedule Call <ArrowRight className="ml-2 h-5 w-5" />
