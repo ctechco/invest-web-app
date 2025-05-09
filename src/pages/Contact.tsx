@@ -46,7 +46,7 @@ const Contact = () => {
                     </address>
                     <div className="mt-4">
                       <p className="text-gray-700"><strong>Phone:</strong> +44 20 1234 5678</p>
-                      <p className="text-gray-700"><strong>Email:</strong> london@futurewavesinvestment.com</p>
+                      <p className="text-gray-700"><strong>Email:</strong> london@futurewave.com</p>
                     </div>
                     <div className="mt-4 flex items-start">
                       <Clock className="h-5 w-5 mr-2 text-quan-blue mt-0.5" />
@@ -75,7 +75,7 @@ const Contact = () => {
                     </address>
                     <div className="mt-4">
                       <p className="text-gray-700"><strong>Phone:</strong> +1 (212) 555-6789</p>
-                      <p className="text-gray-700"><strong>Email:</strong> newyork@futurewavesinvestment.com</p>
+                      <p className="text-gray-700"><strong>Email:</strong> newyork@futurewave.com</p>
                     </div>
                     <div className="mt-4 flex items-start">
                       <Clock className="h-5 w-5 mr-2 text-quan-blue mt-0.5" />

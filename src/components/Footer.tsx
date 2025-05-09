@@ -86,7 +86,7 @@ const Footer = () => {
         
         <div className="border-t border-blue-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 text-sm">
-            &copy; {currentYear} Future Waves Investment Ltd. All rights reserved.
+            &copy; {currentYear} Future Wave. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-gray-300 hover:text-quan-gold transition-colors text-sm">Privacy Policy</Link>
