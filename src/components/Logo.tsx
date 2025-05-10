@@ -38,7 +38,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   // Base classes
   let logoClasses = `${className}`;
   
-  // Icon-only logo component
+  // Icon-only logo component - the redesigned chart/wave logo
   if (variant === 'icon') {
     return (
       <svg 
@@ -49,24 +49,33 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
       >
-        {/* Waves symbol */}
+        {/* Background */}
+        <rect width="64" height="64" rx="12" fill="#9b87f5" className="transition-colors"/>
+        
+        {/* Chart/wave pattern inspired by the uploaded image */}
         <path 
-          d="M12 44C20 36 28 52 36 44C44 36 52 44 52 44" 
-          stroke="#9b87f5" 
+          d="M12 40C14 36 16 42 20 38C24 34 28 44 32 40C36 36 40 42 44 38C48 34 52 40 54 36"
+          stroke="white" 
           strokeWidth="4" 
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        
+        {/* Bottom line representing baseline */}
+        <path 
+          d="M12 48h40" 
+          stroke="white" 
+          strokeWidth="2" 
           strokeLinecap="round"
         />
-        <path 
-          d="M12 32C20 24 28 40 36 32C44 24 52 32 52 32" 
-          stroke="#9b87f5" 
-          strokeWidth="4" 
+        
+        {/* F styled as financial element */}
+        <path
+          d="M24 16h16M24 16v16M24 24h12"
+          stroke="white"
+          strokeWidth="4"
           strokeLinecap="round"
-        />
-        <path 
-          d="M12 20C20 12 28 28 36 20C44 12 52 20 52 20" 
-          stroke="#ffffff" 
-          strokeWidth="4" 
-          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     );
@@ -83,13 +92,13 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
       >
-        <text x="0" y="18" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVE</text>
-        <text x="0" y="36" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff"></text>
+        <text x="0" y="25" fontFamily="'Arial', sans-serif" fontWeight="700" fontSize="24" fill="#9b87f5">FUTURE</text>
+        <text x="100" y="25" fontFamily="'Arial', sans-serif" fontWeight="300" fontSize="24" fill="#9b87f5">WAVE</text>
       </svg>
     );
   }
   
-  // Full logo (default) - combines icon and text
+  // Full logo (default) - combines icon and text with new design
   return (
     <svg 
       width={width} 
@@ -99,32 +108,47 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       xmlns="http://www.w3.org/2000/svg" 
       className={logoClasses}
     >
-      {/* Waves Symbol */}
-      <g transform="translate(0,10) scale(0.65)">
+      {/* Logo Icon */}
+      <g transform="translate(0,0) scale(0.65)">
+        {/* Background */}
+        <rect width="64" height="64" rx="12" fill="#9b87f5"/>
+        
+        {/* Chart/wave pattern inspired by the uploaded image */}
         <path 
-          d="M12 44C20 36 28 52 36 44C44 36 52 44 52 44" 
-          stroke="#9b87f5" 
+          d="M12 40C14 36 16 42 20 38C24 34 28 44 32 40C36 36 40 42 44 38C48 34 52 40 54 36"
+          stroke="white" 
           strokeWidth="4" 
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        
+        {/* Bottom line representing baseline */}
+        <path 
+          d="M12 48h40" 
+          stroke="white" 
+          strokeWidth="2" 
           strokeLinecap="round"
         />
-        <path 
-          d="M12 32C20 24 28 40 36 32C44 24 52 32 52 32" 
-          stroke="#9b87f5" 
-          strokeWidth="4" 
+        
+        {/* F styled as financial element */}
+        <path
+          d="M24 16h16M24 16v16M24 24h12"
+          stroke="white"
+          strokeWidth="4"
           strokeLinecap="round"
-        />
-        <path 
-          d="M12 20C20 12 28 28 36 20C44 12 52 20 52 20" 
-          stroke="#ffffff" 
-          strokeWidth="4" 
-          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       
       {/* Text */}
-      <g transform="translate(60,0)">
-        <text x="0" y="25" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE WAVE</text>
-        <text x="0" y="45" fontFamily="Arial, sans-serif" fontWeight="500" fontSize="14" fill="#ffffff"></text>
+      <g transform="translate(60,18)">
+        <text x="0" y="14" fontFamily="'Arial', sans-serif" fontWeight="700" fontSize="18" fill="#9b87f5">FUTURE</text>
+        <text x="75" y="14" fontFamily="'Arial', sans-serif" fontWeight="300" fontSize="18" fill="#9b87f5">WAVE</text>
+      </g>
+      
+      {/* Tagline */}
+      <g transform="translate(60,38)">
+        <text x="0" y="0" fontFamily="'Arial', sans-serif" fontWeight="400" fontSize="10" fill="#666666">INVESTMENT SOLUTIONS</text>
       </g>
     </svg>
   );

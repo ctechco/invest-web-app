@@ -17,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
       onClick={onPress}
     >
       <CardContent className="p-4 flex items-start gap-3">
-        <div className="bg-blue-50 p-3 rounded-full">
+        <div className="bg-purple-50 p-3 rounded-full">
           <Icon className="h-6 w-6 text-futurewave-blue" />
         </div>
         
