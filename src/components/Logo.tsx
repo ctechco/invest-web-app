@@ -54,16 +54,16 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         
         {/* Chart/wave pattern inspired by the uploaded image */}
         <path 
-          d="M8 45c2-8 4-4 8-12s6 4 10-2c4-6 6 2 10-3c4-5 6 10 10 2c4-8 5-2 10-8"
+          d="M12 40C14 36 16 42 20 38C24 34 28 44 32 40C36 36 40 42 44 38C48 34 52 40 54 36"
           stroke="white" 
-          strokeWidth="3" 
+          strokeWidth="4" 
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         
         {/* Bottom line representing baseline */}
         <path 
-          d="M8 52h48" 
+          d="M12 48h40" 
           stroke="white" 
           strokeWidth="2" 
           strokeLinecap="round"
@@ -71,7 +71,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         
         {/* F styled as financial element */}
         <path
-          d="M20 12h24M20 12v16M20 20h16"
+          d="M24 16h16M24 16v16M24 24h12"
           stroke="white"
           strokeWidth="4"
           strokeLinecap="round"
@@ -115,16 +115,16 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         
         {/* Chart/wave pattern inspired by the uploaded image */}
         <path 
-          d="M8 45c2-8 4-4 8-12s6 4 10-2c4-6 6 2 10-3c4-5 6 10 10 2c4-8 5-2 10-8"
+          d="M12 40C14 36 16 42 20 38C24 34 28 44 32 40C36 36 40 42 44 38C48 34 52 40 54 36"
           stroke="white" 
-          strokeWidth="3" 
+          strokeWidth="4" 
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         
         {/* Bottom line representing baseline */}
         <path 
-          d="M8 52h48" 
+          d="M12 48h40" 
           stroke="white" 
           strokeWidth="2" 
           strokeLinecap="round"
@@ -132,7 +132,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         
         {/* F styled as financial element */}
         <path
-          d="M20 12h24M20 12v16M20 20h16"
+          d="M24 16h16M24 16v16M24 24h12"
           stroke="white"
           strokeWidth="4"
           strokeLinecap="round"
