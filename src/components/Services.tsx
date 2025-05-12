@@ -10,8 +10,8 @@ const ServiceCard = ({ icon: Icon, title, description }: {
 }) => (
   <Card className="border-none shadow-lg hover:shadow-xl transition-shadow h-full">
     <CardHeader className="pb-2">
-      <div className="bg-blue-50 p-3 w-fit rounded-lg mb-4">
-        <Icon className="h-6 w-6 text-futurewave-blue" />
+      <div className="bg-purple-50 p-3 w-fit rounded-lg mb-4">
+        <Icon className="h-6 w-6 text-futurewave-purple" />
       </div>
       <CardTitle className="text-xl">{title}</CardTitle>
     </CardHeader>
@@ -19,15 +19,15 @@ const ServiceCard = ({ icon: Icon, title, description }: {
       <CardDescription className="text-gray-600">{description}</CardDescription>
       <ul className="mt-4 space-y-2">
         <li className="flex items-center text-sm text-gray-600">
-          <CheckCircle className="h-4 w-4 text-futurewave-gold mr-2" />
+          <CheckCircle className="h-4 w-4 text-futurewave-accent mr-2" />
           <span>Expert advisors</span>
         </li>
         <li className="flex items-center text-sm text-gray-600">
-          <CheckCircle className="h-4 w-4 text-futurewave-gold mr-2" />
+          <CheckCircle className="h-4 w-4 text-futurewave-accent mr-2" />
           <span>Tailored strategies</span>
         </li>
         <li className="flex items-center text-sm text-gray-600">
-          <CheckCircle className="h-4 w-4 text-futurewave-gold mr-2" />
+          <CheckCircle className="h-4 w-4 text-futurewave-accent mr-2" />
           <span>Continuous support</span>
         </li>
       </ul>

@@ -41,8 +41,8 @@ const ServiceDetailDrawer: React.FC<ServiceDetailDrawerProps> = ({
         
         <DrawerHeader className="pt-8">
           <div className="flex items-center mb-2">
-            <div className="bg-blue-50 p-3 rounded-full mr-3">
-              <Icon className="h-6 w-6 text-futurewave-blue" />
+            <div className="bg-purple-50 p-3 rounded-full mr-3">
+              <Icon className="h-6 w-6 text-futurewave-purple" />
             </div>
             <DrawerTitle className="text-xl">{service.title}</DrawerTitle>
           </div>
@@ -51,11 +51,11 @@ const ServiceDetailDrawer: React.FC<ServiceDetailDrawerProps> = ({
         <div className="px-1">
           <p className="text-gray-600 mb-6">{service.description}</p>
           
-          <h4 className="font-semibold text-futurewave-blue mb-3">Key Benefits</h4>
+          <h4 className="font-semibold text-futurewave-purple mb-3">Key Benefits</h4>
           <ul className="space-y-3">
             {service.benefits.map((benefit, index) => (
               <li key={index} className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-futurewave-gold mr-2 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-futurewave-accent mr-2 flex-shrink-0" />
                 <span className="text-gray-700">{benefit}</span>
               </li>
             ))}

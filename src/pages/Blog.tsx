@@ -37,7 +37,7 @@ const Blog = () => {
               <div className="bg-gray-200 h-48 md:h-64"></div>
               <div className="p-6">
                 <div className="flex items-center mb-3">
-                  <span className="bg-[#9b87f5] text-white text-xs px-2 py-1 rounded mr-2">Featured</span>
+                  <span className="bg-futurewave-purple text-white text-xs px-2 py-1 rounded mr-2">Featured</span>
                   <span className="text-gray-500 text-sm">May 9, 2025</span>
                 </div>
                 <h2 className="text-2xl font-bold mb-3">The Future of Sustainable Investing</h2>
@@ -68,7 +68,7 @@ const Blog = () => {
                     <p className="text-sm text-gray-600 line-clamp-3 mb-3">
                       With rapid technological advancements and changing economic conditions, investors need to stay ahead of emerging trends.
                     </p>
-                    <span className="text-sm text-[#9b87f5]">Read more</span>
+                    <span className="text-sm text-futurewave-purple">Read more</span>
                   </div>
                 </CardContent>
               </Card>

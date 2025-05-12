@@ -47,16 +47,16 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            <Link to="/" className="font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Home
             </Link>
-            <Link to="/about" className="font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/about" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               About Us
             </Link>
-            <Link to="/services" className="font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/services" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Services
             </Link>
-            <Link to="/contact" className="font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/contact" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Contact
             </Link>
             <Button size={isMobile ? "sm" : "default"} className="btn-primary">
@@ -68,7 +68,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-quan-blue focus:outline-none"
+              className="text-gray-700 hover:text-futurewave-purple focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
@@ -83,16 +83,16 @@ const Navbar = () => {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <Link to="/" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Home
             </Link>
-            <Link to="/about" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/about" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               About Us
             </Link>
-            <Link to="/services" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/services" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Services
             </Link>
-            <Link to="/contact" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-quan-blue transition-colors">
+            <Link to="/contact" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Contact
             </Link>
             <div className="mt-4">
