@@ -18,6 +18,7 @@ import Education from "./pages/Education";
 import Blog from "./pages/Blog";
 import Support from "./pages/Support";
 import Authentication from "./pages/Authentication";
+import BrandAssets from "./pages/BrandAssets";
 import "./App.css";
 
 // Create a client
@@ -63,6 +64,7 @@ const App = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/auth" element={<Authentication />} />
+                <Route path="/brand-assets" element={<BrandAssets />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

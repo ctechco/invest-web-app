@@ -7,9 +7,10 @@ interface LogoProps {
   variant?: 'full' | 'icon' | 'text';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  id?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = '' }) => {
+const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = '', id }) => {
   const isMobile = useIsMobile();
   const defaultSize = isMobile ? 'sm' : 'md';
   const activeSize = size || defaultSize;
@@ -48,6 +49,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
+        id={id}
       >
         {/* Background */}
         <rect width="64" height="64" rx="12" fill="#9b87f5" className="transition-colors"/>
@@ -91,6 +93,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg" 
         className={logoClasses}
+        id={id}
       >
         <text x="0" y="50" fontFamily="'Arial', sans-serif" fontWeight="700" fontSize="48" fill="#9b87f5">FUTURE</text>
         <text x="200" y="50" fontFamily="'Arial', sans-serif" fontWeight="300" fontSize="48" fill="#9b87f5">WAVE</text>
@@ -107,6 +110,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg" 
       className={logoClasses}
+      id={id}
     >
       {/* Logo Icon - Doubled size */}
       <g transform="translate(0,0) scale(1.3)">
@@ -159,11 +163,12 @@ export const LogoLink: React.FC<LogoProps & { to?: string }> = ({
   to = "/", 
   variant = "full",
   size,
-  className = ""
+  className = "",
+  id,
 }) => {
   return (
     <Link to={to} className={`inline-block ${className}`}>
-      <Logo variant={variant} size={size} />
+      <Logo variant={variant} size={size} id={id} />
     </Link>
   );
 };
