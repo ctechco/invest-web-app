@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BarChart2, PieChart, BookOpen, MessageSquare, User, Download } from 'lucide-react';
+import { Home, BarChart2, PieChart, BookOpen, MessageSquare, User } from 'lucide-react';
 
 const MobileNavBar: React.FC = () => {
   const location = useLocation();
@@ -28,10 +28,10 @@ const MobileNavBar: React.FC = () => {
           isActive={location.pathname === '/market-data'} 
         />
         <NavItem 
-          to="/brand-assets" 
-          icon={<Download className="w-6 h-6" />} 
-          label="Assets" 
-          isActive={location.pathname === '/brand-assets'} 
+          to="/education" 
+          icon={<BookOpen className="w-6 h-6" />} 
+          label="Learn" 
+          isActive={location.pathname === '/education'} 
         />
         <NavItem 
           to="/support" 

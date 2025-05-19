@@ -59,9 +59,6 @@ const Navbar = () => {
             <Link to="/contact" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Contact
             </Link>
-            <Link to="/brand-assets" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Brand Assets
-            </Link>
             <Button size={isMobile ? "sm" : "default"} className="btn-primary">
               Get Started
             </Button>
@@ -97,9 +94,6 @@ const Navbar = () => {
             </Link>
             <Link to="/contact" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Contact
-            </Link>
-            <Link to="/brand-assets" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Brand Assets
             </Link>
             <div className="mt-4">
               <Button className="btn-primary w-full">
