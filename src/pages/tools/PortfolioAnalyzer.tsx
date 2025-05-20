@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -7,7 +8,8 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
+import { PieChart } from '@mui/x-charts/PieChart';
+import { useToast } from '@/hooks/use-toast';
 
 interface AssetAllocation {
   id: number;
@@ -18,6 +20,7 @@ interface AssetAllocation {
 
 const PortfolioAnalyzer = () => {
   const isMobile = useIsMobile();
+  const { toast } = useToast();
   const [assets, setAssets] = useState<AssetAllocation[]>([
     { id: 1, name: 'Stocks', value: 60, color: '#9b87f5' },
     { id: 2, name: 'Bonds', value: 25, color: '#6c63ff' },
@@ -49,11 +52,30 @@ const PortfolioAnalyzer = () => {
         color: colors[newId % colors.length]
       }]);
       setNewAsset({ name: '', value: '' });
+      toast({
+        title: "Asset Added",
+        description: `${newAsset.name} has been added to your portfolio.`
+      });
     }
   };
   
   const analyzePortfolio = () => {
+    // Validate total percentage is close to 100%
+    const total = assets.reduce((sum, asset) => sum + asset.value, 0);
+    if (total < 95 || total > 105) {
+      toast({
+        title: "Invalid Allocation",
+        description: `Your total allocation (${total}%) should be close to 100%.`,
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsAnalyzed(true);
+    toast({
+      title: "Portfolio Analyzed",
+      description: "Your portfolio has been successfully analyzed."
+    });
   };
   
   // Prepare data for the pie chart
@@ -140,7 +162,9 @@ const PortfolioAnalyzer = () => {
                         {
                           data: chartData,
                           highlightScope: { fade: 'global', highlight: 'item' },
-                          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                          innerRadius: 30,
+                          paddingAngle: 2,
+                          cornerRadius: 4,
                         },
                       ]}
                       height={240}
