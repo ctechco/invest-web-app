@@ -5,6 +5,7 @@ import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calculator, PieChart, TrendingUp, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const InvestmentTools = () => {
   const isMobile = useIsMobile();
@@ -22,49 +23,57 @@ const InvestmentTools = () => {
           <p className="text-gray-600 mb-8">Use our suite of investment tools to make informed financial decisions.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <Calculator className="h-10 w-10 text-[#9b87f5] mb-2" />
-                <CardTitle>Investment Calculator</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Calculate potential returns based on different investment strategies and time periods.</p>
-                <p className="text-[#9b87f5]">Open Calculator</p>
-              </CardContent>
-            </Card>
+            <Link to="/tools/calculator" className="block">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <Calculator className="h-10 w-10 text-[#9b87f5] mb-2" />
+                  <CardTitle>Investment Calculator</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Calculate potential returns based on different investment strategies and time periods.</p>
+                  <p className="text-[#9b87f5]">Open Calculator</p>
+                </CardContent>
+              </Card>
+            </Link>
             
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <PieChart className="h-10 w-10 text-[#9b87f5] mb-2" />
-                <CardTitle>Portfolio Analyzer</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Analyze your portfolio's performance, risk level, and diversification.</p>
-                <p className="text-[#9b87f5]">Analyze Portfolio</p>
-              </CardContent>
-            </Card>
+            <Link to="/tools/portfolio-analyzer" className="block">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <PieChart className="h-10 w-10 text-[#9b87f5] mb-2" />
+                  <CardTitle>Portfolio Analyzer</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Analyze your portfolio's performance, risk level, and diversification.</p>
+                  <p className="text-[#9b87f5]">Analyze Portfolio</p>
+                </CardContent>
+              </Card>
+            </Link>
             
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <TrendingUp className="h-10 w-10 text-[#9b87f5] mb-2" />
-                <CardTitle>Retirement Planner</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Plan for your retirement by estimating future needs and setting appropriate goals.</p>
-                <p className="text-[#9b87f5]">Start Planning</p>
-              </CardContent>
-            </Card>
+            <Link to="/tools/retirement-planner" className="block">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <TrendingUp className="h-10 w-10 text-[#9b87f5] mb-2" />
+                  <CardTitle>Retirement Planner</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Plan for your retirement by estimating future needs and setting appropriate goals.</p>
+                  <p className="text-[#9b87f5]">Start Planning</p>
+                </CardContent>
+              </Card>
+            </Link>
             
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <AlertCircle className="h-10 w-10 text-[#9b87f5] mb-2" />
-                <CardTitle>Risk Assessment</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">Determine your risk tolerance and get tailored investment recommendations.</p>
-                <p className="text-[#9b87f5]">Take Assessment</p>
-              </CardContent>
-            </Card>
+            <Link to="/tools/risk-assessment" className="block">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <AlertCircle className="h-10 w-10 text-[#9b87f5] mb-2" />
+                  <CardTitle>Risk Assessment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Determine your risk tolerance and get tailored investment recommendations.</p>
+                  <p className="text-[#9b87f5]">Take Assessment</p>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </main>

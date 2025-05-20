@@ -20,6 +20,13 @@ import Support from "./pages/Support";
 import Authentication from "./pages/Authentication";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+
+// Import the tool pages
+import InvestmentCalculator from "./pages/tools/InvestmentCalculator";
+import PortfolioAnalyzer from "./pages/tools/PortfolioAnalyzer";
+import RetirementPlanner from "./pages/tools/RetirementPlanner";
+import RiskAssessment from "./pages/tools/RiskAssessment";
+
 import "./App.css";
 
 // Create a client
@@ -67,6 +74,13 @@ const App = () => {
                 <Route path="/auth" element={<Authentication />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                
+                {/* Add routes for the individual tool pages */}
+                <Route path="/tools/calculator" element={<InvestmentCalculator />} />
+                <Route path="/tools/portfolio-analyzer" element={<PortfolioAnalyzer />} />
+                <Route path="/tools/retirement-planner" element={<RetirementPlanner />} />
+                <Route path="/tools/risk-assessment" element={<RiskAssessment />} />
+                
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
