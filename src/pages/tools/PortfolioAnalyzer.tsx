@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -141,7 +140,7 @@ const PortfolioAnalyzer = () => {
                         {
                           data: chartData,
                           highlightScope: { fade: 'global', highlight: 'item' },
-                          fade: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                          faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                         },
                       ]}
                       height={240}
