@@ -4,63 +4,70 @@ import { Card } from '@/components/ui/card';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { AssetAllocation, ChartDataItem } from '@/types/PortfolioTypes';
 import RecommendationsList from './RecommendationsList';
+import PortfolioSummaryCard from './PortfolioSummaryCard';
 
 interface AnalysisResultsProps {
   assets: AssetAllocation[];
   chartData: ChartDataItem[];
+  totalValue?: number;
 }
 
 const AnalysisResults: React.FC<AnalysisResultsProps> = ({
   assets,
-  chartData
+  chartData,
+  totalValue = 100000 // Default value for demonstration
 }) => {
   return (
-    <Card className="p-6">
-      <h2 className="text-xl font-semibold mb-4">Analysis Results</h2>
+    <div className="space-y-4">
+      <PortfolioSummaryCard assets={assets} totalValue={totalValue} />
       
-      <div className="h-60 mb-4">
-        <div className="w-full h-full">
-          <PieChart
-            series={[
-              {
-                data: chartData,
-                highlightScope: { fade: 'global', highlight: 'item' },
-                innerRadius: 30,
-                paddingAngle: 2,
-                cornerRadius: 4,
-              },
-            ]}
-            height={240}
-          />
-        </div>
-      </div>
-      
-      <div className="space-y-4">
-        <div>
-          <h3 className="font-medium">Risk Level</h3>
-          <p className="text-gray-600">
-            {assets.find(a => a.name === 'Stocks')?.value || 0 > 70 
-              ? 'High Risk' 
-              : assets.find(a => a.name === 'Stocks')?.value || 0 > 40 
-                ? 'Moderate Risk' 
-                : 'Low Risk'}
-          </p>
+      <Card className="p-6">
+        <h2 className="text-xl font-semibold mb-4">Analysis Results</h2>
+        
+        <div className="h-60 mb-4">
+          <div className="w-full h-full">
+            <PieChart
+              series={[
+                {
+                  data: chartData,
+                  highlightScope: { fade: 'global', highlight: 'item' },
+                  innerRadius: 30,
+                  paddingAngle: 2,
+                  cornerRadius: 4,
+                },
+              ]}
+              height={240}
+            />
+          </div>
         </div>
         
-        <div>
-          <h3 className="font-medium">Diversification</h3>
-          <p className="text-gray-600">
-            {assets.length > 5 
-              ? 'Well Diversified' 
-              : assets.length > 3 
-                ? 'Moderately Diversified' 
-                : 'Limited Diversification'}
-          </p>
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-medium">Risk Level</h3>
+            <p className="text-gray-600">
+              {assets.find(a => a.name === 'Stocks')?.value || 0 > 70 
+                ? 'High Risk' 
+                : assets.find(a => a.name === 'Stocks')?.value || 0 > 40 
+                  ? 'Moderate Risk' 
+                  : 'Low Risk'}
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="font-medium">Diversification</h3>
+            <p className="text-gray-600">
+              {assets.length > 5 
+                ? 'Well Diversified' 
+                : assets.length > 3 
+                  ? 'Moderately Diversified' 
+                  : 'Limited Diversification'}
+            </p>
+          </div>
+          
+          <RecommendationsList assets={assets} />
         </div>
-        
-        <RecommendationsList assets={assets} />
-      </div>
-    </Card>
+      </Card>
+    </div>
   );
 };
 

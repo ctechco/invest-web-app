@@ -17,6 +17,8 @@ const PortfolioAnalyzer = () => {
   ]);
   
   const [isAnalyzed, setIsAnalyzed] = useState(false);
+  // Simulated total portfolio value (in a real app, this would come from user input or calculation)
+  const [totalValue] = useState(100000);
   
   // Prepare data for the pie chart
   const chartData: ChartDataItem[] = assets.map(asset => ({
@@ -48,7 +50,8 @@ const PortfolioAnalyzer = () => {
             {isAnalyzed && (
               <AnalysisResults 
                 assets={assets} 
-                chartData={chartData} 
+                chartData={chartData}
+                totalValue={totalValue}
               />
             )}
           </div>
