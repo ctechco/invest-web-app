@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { AssetAllocation } from '@/types/PortfolioTypes';
+import AssetItem from './AssetItem';
 
 interface AssetAllocationFormProps {
   assets: AssetAllocation[];
@@ -74,24 +75,12 @@ const AssetAllocationForm: React.FC<AssetAllocationFormProps> = ({
       
       <div className="space-y-4 mb-6">
         {assets.map(asset => (
-          <div key={asset.id} className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full" style={{ backgroundColor: asset.color }}></div>
-            <div className="flex-grow">{asset.name}</div>
-            <Input
-              type="number"
-              className="w-20"
-              value={asset.value}
-              onChange={(e) => handleAssetChange(asset.id, parseFloat(e.target.value) || 0)}
-            />
-            <div className="w-8">%</div>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => handleRemoveAsset(asset.id)}
-            >
-              ×
-            </Button>
-          </div>
+          <AssetItem 
+            key={asset.id} 
+            asset={asset} 
+            onValueChange={handleAssetChange} 
+            onRemove={handleRemoveAsset}
+          />
         ))}
       </div>
       
