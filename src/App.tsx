@@ -27,6 +27,16 @@ import PortfolioAnalyzer from "./pages/tools/PortfolioAnalyzer";
 import RetirementPlanner from "./pages/tools/RetirementPlanner";
 import RiskAssessment from "./pages/tools/RiskAssessment";
 
+// Import education subpages
+import InvestingBasics from "./pages/education/InvestingBasics";
+import MarketAnalysis from "./pages/education/MarketAnalysis";
+import RetirementPlanning from "./pages/education/RetirementPlanning";
+
+// Import education article pages
+import ETFvsMutualFunds from "./pages/education/articles/ETFvsMutualFunds";
+import TaxEfficientInvesting from "./pages/education/articles/TaxEfficientInvesting";
+import MarketVolatility from "./pages/education/articles/MarketVolatility";
+
 import "./App.css";
 
 // Create a client
@@ -80,6 +90,16 @@ const App = () => {
                 <Route path="/tools/portfolio-analyzer" element={<PortfolioAnalyzer />} />
                 <Route path="/tools/retirement-planner" element={<RetirementPlanner />} />
                 <Route path="/tools/risk-assessment" element={<RiskAssessment />} />
+                
+                {/* Education subpages */}
+                <Route path="/education/investing-basics" element={<InvestingBasics />} />
+                <Route path="/education/market-analysis" element={<MarketAnalysis />} />
+                <Route path="/education/retirement-planning" element={<RetirementPlanning />} />
+                
+                {/* Education article pages */}
+                <Route path="/education/articles/etf-vs-mutual-funds" element={<ETFvsMutualFunds />} />
+                <Route path="/education/articles/tax-efficient-investing" element={<TaxEfficientInvesting />} />
+                <Route path="/education/articles/market-volatility" element={<MarketVolatility />} />
                 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
