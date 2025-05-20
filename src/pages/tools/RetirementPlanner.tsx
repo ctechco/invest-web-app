@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -8,7 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
-import { LineChart } from '@/components/ui/chart';
+import LineChart from '@/components/LineChart';
 
 const RetirementPlanner = () => {
   const isMobile = useIsMobile();
