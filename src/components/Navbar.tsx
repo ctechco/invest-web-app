@@ -59,9 +59,11 @@ const Navbar = () => {
             <Link to="/contact" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Contact
             </Link>
-            <Button size={isMobile ? "sm" : "default"} className="btn-primary">
-              Get Started
-            </Button>
+            <Link to="/auth">
+              <Button size={isMobile ? "sm" : "default"} className="btn-primary">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -96,9 +98,11 @@ const Navbar = () => {
               Contact
             </Link>
             <div className="mt-4">
-              <Button className="btn-primary w-full">
-                Get Started
-              </Button>
+              <Link to="/auth" onClick={handleLinkClick}>
+                <Button className="btn-primary w-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
         )}
