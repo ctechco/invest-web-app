@@ -18,6 +18,8 @@ import Education from "./pages/Education";
 import Blog from "./pages/Blog";
 import Support from "./pages/Support";
 import Authentication from "./pages/Authentication";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import "./App.css";
 
 // Create a client
@@ -63,6 +65,8 @@ const App = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/auth" element={<Authentication />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

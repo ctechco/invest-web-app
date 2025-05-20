@@ -10,10 +10,46 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { LogoLink } from '@/components/Logo';
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from '@/components/ui/dialog';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger
+} from '@/components/ui/drawer';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 const Authentication = () => {
   const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(false);
+  const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
+  
+  const form = useForm({
+    defaultValues: {
+      email: '',
+    }
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,6 +59,56 @@ const Authentication = () => {
       setIsLoading(false);
     }, 1500);
   };
+
+  const handleForgotPassword = (data: { email: string }) => {
+    setIsLoading(true);
+    // Simulate password reset email
+    setTimeout(() => {
+      setIsLoading(false);
+      toast.success(`Password reset link sent to ${data.email}`);
+      setForgotPasswordOpen(false);
+    }, 1500);
+  };
+
+  const ForgotPasswordForm = () => (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(handleForgotPassword)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input 
+                  placeholder="name@example.com" 
+                  type="email" 
+                  {...field} 
+                  required 
+                />
+              </FormControl>
+              <FormDescription>
+                We'll send you a link to reset your password.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button 
+          type="submit" 
+          className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" 
+          disabled={isLoading}
+        >
+          {isLoading ? 'Sending...' : 'Reset Password'}
+        </Button>
+      </form>
+    </Form>
+  );
+
+  const ForgotPasswordTrigger = 
+    <button className="text-xs text-[#9b87f5] hover:underline">
+      Forgot password?
+    </button>;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -62,9 +148,39 @@ const Authentication = () => {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <Label htmlFor="password">Password</Label>
-                        <a href="#" className="text-xs text-[#9b87f5] hover:underline">
-                          Forgot password?
-                        </a>
+                        {isMobile ? (
+                          <Drawer open={forgotPasswordOpen} onOpenChange={setForgotPasswordOpen}>
+                            <DrawerTrigger asChild>
+                              {ForgotPasswordTrigger}
+                            </DrawerTrigger>
+                            <DrawerContent>
+                              <DrawerHeader>
+                                <DrawerTitle>Forgot Password</DrawerTitle>
+                                <DrawerDescription>
+                                  Enter your email address below to receive a password reset link.
+                                </DrawerDescription>
+                              </DrawerHeader>
+                              <div className="p-4">
+                                <ForgotPasswordForm />
+                              </div>
+                            </DrawerContent>
+                          </Drawer>
+                        ) : (
+                          <Dialog open={forgotPasswordOpen} onOpenChange={setForgotPasswordOpen}>
+                            <DialogTrigger asChild>
+                              {ForgotPasswordTrigger}
+                            </DialogTrigger>
+                            <DialogContent>
+                              <DialogHeader>
+                                <DialogTitle>Forgot Password</DialogTitle>
+                                <DialogDescription>
+                                  Enter your email address below to receive a password reset link.
+                                </DialogDescription>
+                              </DialogHeader>
+                              <ForgotPasswordForm />
+                            </DialogContent>
+                          </Dialog>
+                        )}
                       </div>
                       <Input id="password" type="password" required />
                     </div>
@@ -123,7 +239,7 @@ const Authentication = () => {
                         htmlFor="terms"
                         className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        I agree to the <a href="#" className="text-[#9b87f5] hover:underline">Terms of Service</a> and <a href="#" className="text-[#9b87f5] hover:underline">Privacy Policy</a>
+                        I agree to the <Link to="/terms" className="text-[#9b87f5] hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-[#9b87f5] hover:underline">Privacy Policy</Link>
                       </label>
                     </div>
                     <Button type="submit" className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" disabled={isLoading}>
