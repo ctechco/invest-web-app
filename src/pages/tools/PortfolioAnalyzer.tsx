@@ -140,7 +140,7 @@ const PortfolioAnalyzer = () => {
                       series={[
                         {
                           data: chartData,
-                          highlightScope: { fade: 'global', highlighted: 'item' },
+                          highlightScope: { fade: 'global', highlight: 'item' },
                           fade: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                         },
                       ]}
