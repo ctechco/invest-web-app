@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { PieChart } from '@mui/x-charts/PieChart';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { AssetAllocation, ChartDataItem } from '@/types/PortfolioTypes';
 import RecommendationsList from './RecommendationsList';
 import PortfolioSummaryCard from './PortfolioSummaryCard';
@@ -17,6 +17,13 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({
   chartData,
   totalValue = 100000 // Default value for demonstration
 }) => {
+  // Transform data for Recharts
+  const pieData = chartData.map(item => ({
+    name: item.label,
+    value: item.value,
+    color: item.color
+  }));
+
   return (
     <div className="space-y-4">
       <PortfolioSummaryCard assets={assets} totalValue={totalValue} />
@@ -25,20 +32,27 @@ const AnalysisResults: React.FC<AnalysisResultsProps> = ({
         <h2 className="text-xl font-semibold mb-4">Analysis Results</h2>
         
         <div className="h-60 mb-4">
-          <div className="w-full h-full">
-            <PieChart
-              series={[
-                {
-                  data: chartData,
-                  highlightScope: { fade: 'global', highlight: 'item' },
-                  innerRadius: 30,
-                  paddingAngle: 2,
-                  cornerRadius: 4,
-                },
-              ]}
-              height={240}
-            />
-          </div>
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={pieData}
+                cx="50%"
+                cy="50%"
+                innerRadius={30}
+                outerRadius={80}
+                paddingAngle={2}
+                dataKey="value"
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip 
+                formatter={(value) => [`${value}%`, 'Allocation']}
+              />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
         
         <div className="space-y-4">
