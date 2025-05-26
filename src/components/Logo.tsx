@@ -15,22 +15,22 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   const defaultSize = isMobile ? 'sm' : 'md';
   const activeSize = size || defaultSize;
   
-  // Size mapping for different variants
+  // Size mapping for different variants - reduced by half
   const sizeMap = {
     sm: {
-      full: { width: 200, height: 80 },
-      icon: { width: 60, height: 60 },
-      text: { width: 160, height: 40 }
+      full: { width: 100, height: 40 },
+      icon: { width: 30, height: 30 },
+      text: { width: 80, height: 20 }
     },
     md: {
-      full: { width: 240, height: 96 },
-      icon: { width: 80, height: 80 },
-      text: { width: 200, height: 50 }
+      full: { width: 120, height: 48 },
+      icon: { width: 40, height: 40 },
+      text: { width: 100, height: 25 }
     },
     lg: {
-      full: { width: 320, height: 128 },
-      icon: { width: 100, height: 100 },
-      text: { width: 240, height: 60 }
+      full: { width: 160, height: 64 },
+      icon: { width: 50, height: 50 },
+      text: { width: 120, height: 30 }
     }
   };
   
@@ -43,7 +43,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   if (variant === 'icon') {
     return (
       <img 
-        src="/lovable-uploads/b1d835a3-1304-41f7-8a55-5b520e3278a4.png"
+        src="/lovable-uploads/b1e4b79b-4d80-4b15-a66b-9055b67e5ec8.png"
         alt="Future Wave"
         width={width} 
         height={height}
@@ -59,7 +59,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
       <div className={`flex items-center ${logoClasses}`} id={id}>
         <span 
           style={{ width: width, height: height }}
-          className="text-[#9b87f5] font-bold flex items-center justify-center text-lg"
+          className="text-[#9b87f5] font-bold flex items-center justify-center text-sm"
         >
           FUTURE WAVE
         </span>
@@ -70,7 +70,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   // Full logo (default) - uses the uploaded image
   return (
     <img 
-      src="/lovable-uploads/b1d835a3-1304-41f7-8a55-5b520e3278a4.png"
+      src="/lovable-uploads/b1e4b79b-4d80-4b15-a66b-9055b67e5ec8.png"
       alt="Future Wave"
       width={width} 
       height={height}

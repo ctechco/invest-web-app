@@ -54,11 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				futurewave: {
-					purple: '#9b87f5',  // Main secondary color (purple)
-					white: '#FFFFFF',   // Main dominant color (white)
-					accent: '#9ca770',  // Accent color
+					purple: '#9b87f5',  // Secondary color (30%)
+					white: '#FFFFFF',   // Dominant color (60%)
+					accent: '#9ca770',  // Accent color (10%)
 					light: '#f8f9fa',
-					dark: '#1A1F2C',    // Darker purple tint
+					dark: '#1A1F2C',
 					gray: '#6c757d',
 				},
 				sidebar: {
