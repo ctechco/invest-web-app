@@ -1,15 +1,14 @@
-
 import React, { useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import AboutSection from '@/components/AboutSection';
-import Testimonials from '@/components/Testimonials';
 import ContactSection from '@/components/ContactSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import MobileHeader from '@/components/MobileHeader';
+import LiveSupportChat from '@/components/LiveSupportChat';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -60,12 +59,12 @@ const Index = () => {
           </div>
           <Services />
           <AboutSection />
-          <Testimonials />
           <ContactSection />
           <CTASection />
         </div>
       </main>
       {!isMobile && <Footer />}
+      <LiveSupportChat />
     </div>
   );
 };

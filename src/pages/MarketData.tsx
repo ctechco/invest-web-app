@@ -1,14 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp, TrendingDown, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import NewsModal from '@/components/NewsModal';
+
+interface NewsItem {
+  date: string;
+  source: string;
+  title: string;
+  preview: string;
+}
 
 const MarketData = () => {
   const isMobile = useIsMobile();
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const newsItems: NewsItem[] = [
+    {
+      date: "May 9, 2025",
+      source: "CNBC",
+      title: "Fed Signals Potential Rate Cut as Inflation Eases",
+      preview: "The Federal Reserve indicated it may soon be appropriate to lower interest rates as inflation data shows signs of returning to the 2% target."
+    },
+    {
+      date: "May 9, 2025",
+      source: "Bloomberg",
+      title: "Tech Stocks Rally on Strong Earnings Reports",
+      preview: "Technology sector leads market gains following better-than-expected quarterly results from major companies."
+    },
+    {
+      date: "May 8, 2025",
+      source: "Reuters",
+      title: "Oil Prices Stable Despite Middle East Tensions",
+      preview: "Crude oil prices held steady around $80 per barrel even as geopolitical tensions continue to simmer in the Middle East region."
+    }
+  ];
+
+  const handleNewsClick = (newsItem: NewsItem) => {
+    setSelectedNews(newsItem);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -163,38 +199,30 @@ const MarketData = () => {
           {/* Market News */}
           <h2 className="text-xl font-bold mb-4">Latest Market News</h2>
           <div className="space-y-4">
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-sm text-gray-500 mb-1">May 9, 2025 - CNBC</div>
-                <h3 className="font-bold mb-2">Fed Signals Potential Rate Cut as Inflation Eases</h3>
-                <p className="text-sm text-gray-700 line-clamp-2">
-                  The Federal Reserve indicated it may soon be appropriate to lower interest rates as inflation data shows signs of returning to the 2% target.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-sm text-gray-500 mb-1">May 9, 2025 - Bloomberg</div>
-                <h3 className="font-bold mb-2">Tech Stocks Rally on Strong Earnings Reports</h3>
-                <p className="text-sm text-gray-700 line-clamp-2">
-                  Technology sector leads market gains following better-than-expected quarterly results from major companies.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-sm text-gray-500 mb-1">May 8, 2025 - Reuters</div>
-                <h3 className="font-bold mb-2">Oil Prices Stable Despite Middle East Tensions</h3>
-                <p className="text-sm text-gray-700 line-clamp-2">
-                  Crude oil prices held steady around $80 per barrel even as geopolitical tensions continue to simmer in the Middle East region.
-                </p>
-              </CardContent>
-            </Card>
+            {newsItems.map((newsItem, index) => (
+              <Card 
+                key={index} 
+                className="cursor-pointer hover:shadow-md transition-shadow"
+                onClick={() => handleNewsClick(newsItem)}
+              >
+                <CardContent className="p-4">
+                  <div className="text-sm text-gray-500 mb-1">{newsItem.date} - {newsItem.source}</div>
+                  <h3 className="font-bold mb-2">{newsItem.title}</h3>
+                  <p className="text-sm text-gray-700 line-clamp-2">
+                    {newsItem.preview}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </main>
+
+      <NewsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        newsItem={selectedNews}
+      />
     </div>
   );
 };

@@ -22,13 +22,13 @@ const Hero = () => {
             Expert financial strategies and diversified investments to help you build and preserve wealth for generations to come.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-            <Button size={isMobile ? "default" : "lg"} className="bg-futurewave-accent text-white hover:bg-[#8a955f] hover:text-white text-base md:text-lg px-5 md:px-8">
-              Start Investing
-            </Button>
-            <Button size={isMobile ? "default" : "lg"} className="bg-transparent border border-white text-white hover:bg-white/10 hover:text-white text-base md:text-lg px-5 md:px-8">
-              <Link to="/contact" className="flex items-center text-white hover:text-white">
-                Talk to an Advisor <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Link>
+            <Link to="/tools">
+              <Button size={isMobile ? "default" : "lg"} className="bg-futurewave-accent text-white hover:bg-[#8a955f] hover:text-white text-base md:text-lg px-5 md:px-8">
+                Start Investing
+              </Button>
+            </Link>
+            <Button size={isMobile ? "default" : "lg"} className="bg-transparent border border-white text-white hover:bg-white/10 hover:text-white text-base md:text-lg px-5 md:px-8" onClick={() => window.liveSupportChat?.open()}>
+              Talk to an Advisor <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Button>
           </div>
           
