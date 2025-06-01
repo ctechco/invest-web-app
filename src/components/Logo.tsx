@@ -15,7 +15,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   const defaultSize = isMobile ? 'sm' : 'md';
   const activeSize = size || defaultSize;
   
-  // Size mapping for different variants - reduced by half
+  // Size mapping for different variants
   const sizeMap = {
     sm: {
       full: { width: 100, height: 40 },
@@ -43,7 +43,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   if (variant === 'icon') {
     return (
       <img 
-        src="/lovable-uploads/4bb4bb1d-4473-41cd-847a-38fd6671ce8f.png"
+        src="/lovable-uploads/c9e3c602-ed82-49af-a594-6a1a7c0f69b3.png"
         alt="Future Wave"
         width={width} 
         height={height}
@@ -70,7 +70,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   // Full logo (default) - uses the uploaded image
   return (
     <img 
-      src="/lovable-uploads/4bb4bb1d-4473-41cd-847a-38fd6671ce8f.png"
+      src="/lovable-uploads/c9e3c602-ed82-49af-a594-6a1a7c0f69b3.png"
       alt="Future Wave"
       width={width} 
       height={height}
