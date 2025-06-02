@@ -100,20 +100,6 @@ const About = () => {
             </div>
           </div>
         </section>
-        
-        {/* Team Section Preview */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold heading-gradient mb-4">Meet Our Expert Team</h2>
-            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-              Our team of experienced financial professionals is committed to helping you achieve your financial goals.
-            </p>
-            
-            <Button className="btn-primary" size="lg">
-              View Our Team
-            </Button>
-          </div>
-        </section>
       </main>
       
       <Footer />
