@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,6 +18,9 @@ import Support from "./pages/Support";
 import Authentication from "./pages/Authentication";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
+import CookieConsent from "./components/CookieConsent";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Import the tool pages
 import InvestmentCalculator from "./pages/tools/InvestmentCalculator";
@@ -73,7 +75,11 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                } />
                 <Route path="/market-data" element={<MarketData />} />
                 <Route path="/tools" element={<InvestmentTools />} />
                 <Route path="/education" element={<Education />} />
@@ -82,6 +88,7 @@ const App = () => {
                 <Route path="/auth" element={<Authentication />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
                 
                 {/* Add routes for the individual tool pages */}
                 <Route path="/tools/calculator" element={<InvestmentCalculator />} />
@@ -104,6 +111,7 @@ const App = () => {
               </Routes>
             </AppShell>
           </BrowserRouter>
+          <CookieConsent />
         </div>
       </TooltipProvider>
     </QueryClientProvider>

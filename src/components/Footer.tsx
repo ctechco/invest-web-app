@@ -11,76 +11,76 @@ const Footer = () => {
     <footer className="bg-futurewave-purple text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Contact Information Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-8 text-center">Contact Us</h2>
-          <p className="text-center text-white opacity-90 mb-8">
+        <div className="mb-12 bg-white rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-8 text-center text-[#9b87f5]">Contact Us</h2>
+          <p className="text-center text-[#9b87f5] mb-8">
             Our team of financial experts is ready to help you achieve your financial goals. Reach out to us today.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white/10 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 flex items-center">
+            <div className="bg-[#9b87f5]/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold mb-3 flex items-center text-[#9b87f5]">
                 <MapPin className="h-5 w-5 mr-2" />
                 London Headquarters
               </h3>
-              <address className="not-italic text-white opacity-90 mb-4">
+              <address className="not-italic text-[#9b87f5] mb-4">
                 <p>123 Financial District</p>
                 <p>London, UK</p>
                 <p>EC4A 2BP</p>
               </address>
               <div className="mb-4">
-                <p className="flex items-center text-white opacity-90">
+                <p className="flex items-center text-[#9b87f5]">
                   <Phone className="h-4 w-4 mr-2" />
                   <strong>Phone:</strong> +44 20 1234 5678
                 </p>
-                <p className="flex items-center text-white opacity-90">
+                <p className="flex items-center text-[#9b87f5]">
                   <Mail className="h-4 w-4 mr-2" />
                   <strong>Email:</strong> london@futurewave.com
                 </p>
               </div>
               <div className="flex items-start">
-                <Clock className="h-5 w-5 mr-2 mt-0.5" />
+                <Clock className="h-5 w-5 mr-2 mt-0.5 text-[#9b87f5]" />
                 <div>
-                  <p className="font-medium">Office Hours:</p>
-                  <p className="text-white opacity-90">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                  <p className="text-white opacity-90">Saturday - Sunday: Closed</p>
+                  <p className="font-medium text-[#9b87f5]">Office Hours:</p>
+                  <p className="text-[#9b87f5]">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                  <p className="text-[#9b87f5]">Saturday - Sunday: Closed</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-white/10 rounded-lg p-6">
-              <h3 className="text-xl font-bold mb-3 flex items-center">
+            <div className="bg-[#9b87f5]/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold mb-3 flex items-center text-[#9b87f5]">
                 <MapPin className="h-5 w-5 mr-2" />
                 New York Office
               </h3>
-              <address className="not-italic text-white opacity-90 mb-4">
+              <address className="not-italic text-[#9b87f5] mb-4">
                 <p>456 Wall Street</p>
                 <p>New York, NY</p>
                 <p>10005, USA</p>
               </address>
               <div className="mb-4">
-                <p className="flex items-center text-white opacity-90">
+                <p className="flex items-center text-[#9b87f5]">
                   <Phone className="h-4 w-4 mr-2" />
                   <strong>Phone:</strong> +1 (212) 555-6789
                 </p>
-                <p className="flex items-center text-white opacity-90">
+                <p className="flex items-center text-[#9b87f5]">
                   <Mail className="h-4 w-4 mr-2" />
                   <strong>Email:</strong> newyork@futurewave.com
                 </p>
               </div>
               <div className="flex items-start">
-                <Clock className="h-5 w-5 mr-2 mt-0.5" />
+                <Clock className="h-5 w-5 mr-2 mt-0.5 text-[#9b87f5]" />
                 <div>
-                  <p className="font-medium">Office Hours:</p>
-                  <p className="text-white opacity-90">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p className="text-white opacity-90">Saturday - Sunday: Closed</p>
+                  <p className="font-medium text-[#9b87f5]">Office Hours:</p>
+                  <p className="text-[#9b87f5]">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p className="text-[#9b87f5]">Saturday - Sunday: Closed</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <div className="mb-4">
               <Logo variant="full" size="md" />
@@ -110,18 +110,6 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Our Services</h3>
-            <ul className="space-y-2">
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Investment Management</Link></li>
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Wealth Planning</Link></li>
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Retirement Planning</Link></li>
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Risk Management</Link></li>
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Estate Planning</Link></li>
-              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Tax Optimization</Link></li>
-            </ul>
           </div>
           
           <div>
@@ -162,7 +150,7 @@ const Footer = () => {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Privacy Policy</Link>
             <Link to="/terms" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Terms of Service</Link>
-            <a href="#" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Cookie Policy</a>
+            <Link to="/cookie-policy" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Cookie Policy</Link>
           </div>
         </div>
       </div>

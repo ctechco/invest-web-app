@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -54,9 +53,13 @@ const Authentication = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
+    // Simulate API call and set user as authenticated
     setTimeout(() => {
       setIsLoading(false);
+      localStorage.setItem('userAuthenticated', 'true');
+      toast.success('Successfully signed in!');
+      // Redirect to dashboard or previous page
+      window.location.href = '/dashboard';
     }, 1500);
   };
 
