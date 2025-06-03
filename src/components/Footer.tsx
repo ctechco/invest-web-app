@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { Clock, MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,6 +10,76 @@ const Footer = () => {
   return (
     <footer className="bg-futurewave-purple text-white">
       <div className="container mx-auto px-4 py-12">
+        {/* Contact Information Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-8 text-center">Contact Us</h2>
+          <p className="text-center text-white opacity-90 mb-8">
+            Our team of financial experts is ready to help you achieve your financial goals. Reach out to us today.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold mb-3 flex items-center">
+                <MapPin className="h-5 w-5 mr-2" />
+                London Headquarters
+              </h3>
+              <address className="not-italic text-white opacity-90 mb-4">
+                <p>123 Financial District</p>
+                <p>London, UK</p>
+                <p>EC4A 2BP</p>
+              </address>
+              <div className="mb-4">
+                <p className="flex items-center text-white opacity-90">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <strong>Phone:</strong> +44 20 1234 5678
+                </p>
+                <p className="flex items-center text-white opacity-90">
+                  <Mail className="h-4 w-4 mr-2" />
+                  <strong>Email:</strong> london@futurewave.com
+                </p>
+              </div>
+              <div className="flex items-start">
+                <Clock className="h-5 w-5 mr-2 mt-0.5" />
+                <div>
+                  <p className="font-medium">Office Hours:</p>
+                  <p className="text-white opacity-90">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                  <p className="text-white opacity-90">Saturday - Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 rounded-lg p-6">
+              <h3 className="text-xl font-bold mb-3 flex items-center">
+                <MapPin className="h-5 w-5 mr-2" />
+                New York Office
+              </h3>
+              <address className="not-italic text-white opacity-90 mb-4">
+                <p>456 Wall Street</p>
+                <p>New York, NY</p>
+                <p>10005, USA</p>
+              </address>
+              <div className="mb-4">
+                <p className="flex items-center text-white opacity-90">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <strong>Phone:</strong> +1 (212) 555-6789
+                </p>
+                <p className="flex items-center text-white opacity-90">
+                  <Mail className="h-4 w-4 mr-2" />
+                  <strong>Email:</strong> newyork@futurewave.com
+                </p>
+              </div>
+              <div className="flex items-start">
+                <Clock className="h-5 w-5 mr-2 mt-0.5" />
+                <div>
+                  <p className="font-medium">Office Hours:</p>
+                  <p className="text-white opacity-90">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p className="text-white opacity-90">Saturday - Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="mb-4">
@@ -58,10 +129,10 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">About Us</Link></li>
-              <li><Link to="/team" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Our Team</Link></li>
+              <li><Link to="/services" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Services</Link></li>
               <li><Link to="/blog" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Market Insights</Link></li>
-              <li><Link to="/faq" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">FAQs</Link></li>
-              <li><Link to="/contact" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Contact Us</Link></li>
+              <li><Link to="/support" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Support</Link></li>
+              <li><Link to="/auth" className="text-white opacity-80 hover:text-futurewave-accent transition-colors">Get Started</Link></li>
             </ul>
           </div>
           
@@ -91,7 +162,7 @@ const Footer = () => {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Privacy Policy</Link>
             <Link to="/terms" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Terms of Service</Link>
-            <Link to="/cookies" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Cookie Policy</Link>
+            <a href="#" className="text-white opacity-80 hover:text-futurewave-accent transition-colors text-sm">Cookie Policy</a>
           </div>
         </div>
       </div>

@@ -2,7 +2,9 @@
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
+import MobileNavBar from '@/components/MobileNavBar';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageSquare, Mail, Phone, HelpCircle } from 'lucide-react';
@@ -19,7 +21,7 @@ const Support = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl font-bold mb-6">Customer Support</h1>
           <p className="text-gray-600 mb-8">We're here to help. Choose the support option that works best for you.</p>
@@ -125,6 +127,8 @@ const Support = () => {
           </div>
         </div>
       </main>
+      <Footer />
+      {isMobile && <MobileNavBar />}
     </div>
   );
 };
