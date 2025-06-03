@@ -79,7 +79,8 @@ const InvestmentTools = () => {
           </div>
         </div>
       </main>
-      {isMobile ? <MobileNavBar /> : <Footer />}
+      <Footer />
+      {isMobile && <MobileNavBar />}
     </div>
   );
 };

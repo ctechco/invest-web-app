@@ -63,7 +63,8 @@ const Index = () => {
           <CTASection />
         </div>
       </main>
-      {isMobile ? <MobileNavBar /> : <Footer />}
+      <Footer />
+      {isMobile && <MobileNavBar />}
       <LiveSupportChat />
     </div>
   );

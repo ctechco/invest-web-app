@@ -42,25 +42,28 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <LogoLink to="/" size={isMobile ? "sm" : "md"} />
+            <LogoLink to="/" size="sm" />
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Using mobile nav links */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             <Link to="/" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Home
             </Link>
-            <Link to="/about" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              About Us
+            <Link to="/dashboard" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Dashboard
             </Link>
-            <Link to="/services" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Services
+            <Link to="/market-data" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Markets
             </Link>
-            <Link to="/contact" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Contact
+            <Link to="/education" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Learn
+            </Link>
+            <Link to="/tools" className="font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Tools
             </Link>
             <Link to="/auth">
-              <Button size={isMobile ? "sm" : "default"} className="btn-primary">
+              <Button size="sm" className="btn-primary">
                 Get Started
               </Button>
             </Link>
@@ -88,14 +91,17 @@ const Navbar = () => {
             <Link to="/" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
               Home
             </Link>
-            <Link to="/about" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              About Us
+            <Link to="/dashboard" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Dashboard
             </Link>
-            <Link to="/services" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Services
+            <Link to="/market-data" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Markets
             </Link>
-            <Link to="/contact" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
-              Contact
+            <Link to="/education" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Learn
+            </Link>
+            <Link to="/tools" onClick={handleLinkClick} className="block py-3 font-medium text-gray-700 hover:text-futurewave-purple transition-colors">
+              Tools
             </Link>
             <div className="mt-4">
               <Link to="/auth" onClick={handleLinkClick}>
