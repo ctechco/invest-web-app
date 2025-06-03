@@ -82,7 +82,7 @@ const LiveSupportChat = () => {
     return (
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-futurewave-purple hover:bg-[#8a74e8] shadow-lg"
+        className="fixed bottom-24 right-6 z-50 h-12 w-12 rounded-full bg-futurewave-purple hover:bg-[#8a74e8] shadow-lg"
         size="icon"
       >
         <MessageCircle className="h-6 w-6 text-white" />
@@ -91,7 +91,7 @@ const LiveSupportChat = () => {
   }
 
   return (
-    <div className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${isMinimized ? 'h-12' : 'h-96'} w-80`}>
+    <div className={`fixed bottom-24 right-6 z-50 transition-all duration-300 ${isMinimized ? 'h-12' : 'h-96'} w-80`}>
       <Card className="h-full shadow-xl border-2 border-futurewave-purple">
         <CardHeader className="bg-futurewave-purple text-white p-3 rounded-t-lg">
           <div className="flex items-center justify-between">
