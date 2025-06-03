@@ -1,13 +1,14 @@
+
 import React, { useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import AboutSection from '@/components/AboutSection';
-import ContactSection from '@/components/ContactSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import MobileHeader from '@/components/MobileHeader';
+import MobileNavBar from '@/components/MobileNavBar';
 import LiveSupportChat from '@/components/LiveSupportChat';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -27,7 +28,7 @@ const Index = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'}`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'}`}>
         <Hero />
         <div className="container mx-auto px-4 py-8">
           {/* Quick Actions */}
@@ -59,11 +60,10 @@ const Index = () => {
           </div>
           <Services />
           <AboutSection />
-          <ContactSection />
           <CTASection />
         </div>
       </main>
-      {!isMobile && <Footer />}
+      {isMobile ? <MobileNavBar /> : <Footer />}
       <LiveSupportChat />
     </div>
   );

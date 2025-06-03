@@ -2,7 +2,6 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import { Clock, MapPin } from 'lucide-react';
 
 const Contact = () => {
@@ -91,9 +90,6 @@ const Contact = () => {
             </div>
           </div>
         </section>
-        
-        {/* Contact Form Section */}
-        <ContactSection />
       </main>
       
       <Footer />

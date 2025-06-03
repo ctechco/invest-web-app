@@ -2,7 +2,9 @@
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
+import MobileNavBar from '@/components/MobileNavBar';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -17,7 +19,7 @@ const Blog = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl font-bold mb-6">Investment Insights</h1>
           
@@ -76,6 +78,7 @@ const Blog = () => {
           </div>
         </div>
       </main>
+      {isMobile ? <MobileNavBar /> : <Footer />}
     </div>
   );
 };
