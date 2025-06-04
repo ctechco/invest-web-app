@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -66,10 +67,10 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+        <BrowserRouter>
+          <div className="min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+            <Toaster />
+            <Sonner />
             <AppShell>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -110,9 +111,9 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AppShell>
-          </BrowserRouter>
-          <CookieConsent />
-        </div>
+            <CookieConsent />
+          </div>
+        </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
