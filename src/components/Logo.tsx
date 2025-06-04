@@ -43,7 +43,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   if (variant === 'icon') {
     return (
       <img 
-        src="/lovable-uploads/c9e3c602-ed82-49af-a594-6a1a7c0f69b3.png"
+        src="/lovable-uploads/1f9a4c03-1c8b-4351-839e-6302002f6040.png"
         alt="Future Wave"
         width={width} 
         height={height}
@@ -70,7 +70,7 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   // Full logo (default) - uses the uploaded image
   return (
     <img 
-      src="/lovable-uploads/c9e3c602-ed82-49af-a594-6a1a7c0f69b3.png"
+      src="/lovable-uploads/1f9a4c03-1c8b-4351-839e-6302002f6040.png"
       alt="Future Wave"
       width={width} 
       height={height}
