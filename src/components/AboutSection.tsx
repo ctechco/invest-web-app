@@ -21,7 +21,7 @@ const AboutSection = () => {
                 <p className="opacity-90">Our team has successfully managed portfolios through multiple market cycles and economic conditions.</p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-futurewave-accent text-white p-6 rounded-lg shadow-xl max-w-xs hidden md:block">
+            <div className="absolute bottom-12 -right-6 bg-futurewave-accent text-white p-6 rounded-lg shadow-xl max-w-xs hidden md:block">
               <div className="text-3xl font-bold mb-2">15+ Years</div>
               <p className="text-sm">Of excellence in financial investment services and wealth management</p>
             </div>
