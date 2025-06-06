@@ -11,13 +11,16 @@ const About = () => {
       <Navbar />
       
       <main className="flex-grow pt-16">
-        {/* Page Header */}
-        <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-12">
+        {/* Main Page Header */}
+        <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">About Future Wave</h1>
-              <p className="text-lg opacity-90">
-                Your trusted partner in building wealth and securing financial futures through expert guidance and innovative investment strategies.
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Wave</h1>
+              <p className="text-xl md:text-2xl opacity-90 mb-4">
+                Building Wealth, Securing Futures
+              </p>
+              <p className="text-lg opacity-80 max-w-3xl mx-auto">
+                Your trusted partner in financial success. We combine expert guidance, innovative strategies, and personalized service to help you achieve your financial goals and build lasting wealth.
               </p>
             </div>
           </div>
