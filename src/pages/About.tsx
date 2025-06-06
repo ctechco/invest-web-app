@@ -22,13 +22,20 @@ const About = () => {
             </div>
           </div>
         </section>
-        
-        {/* Our Story Section */}
+
+        {/* Our Story Header */}
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold heading-gradient mb-8 text-center">Our Story</h2>
-              
+            </div>
+          </div>
+        </section>
+        
+        {/* Our Story Content */}
+        <section className="pb-8">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
               <div className="prose max-w-none text-gray-700">
                 <p className="text-lg mb-4">
                   Founded in 2008, Future Wave was established with a clear vision: to provide exceptional financial advice and investment services that truly put clients first. Our founders, having witnessed the impact of the global financial crisis, were determined to create a firm that operated with transparency, integrity, and a genuine commitment to client success.
