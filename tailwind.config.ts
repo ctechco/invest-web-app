@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,9 +53,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				futurewave: {
-					purple: '#9b87f5',  // Secondary color (30%)
-					white: '#FFFFFF',   // Dominant color (60%)
-					accent: '#9ca770',  // Accent color (10%)
+					blue: '#4f7cff',      // Added missing blue color
+					purple: '#9b87f5',    // Secondary color (30%)
+					white: '#FFFFFF',     // Dominant color (60%)
+					accent: '#9ca770',    // Accent color (10%)
 					light: '#f8f9fa',
 					dark: '#1A1F2C',
 					gray: '#6c757d',
