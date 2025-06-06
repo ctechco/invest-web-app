@@ -15,22 +15,22 @@ const Logo: React.FC<LogoProps> = ({ variant = 'full', size = 'md', className = 
   const defaultSize = isMobile ? 'sm' : 'md';
   const activeSize = size || defaultSize;
   
-  // Size mapping for different variants (reduced by 30%)
+  // Size mapping for different variants (increased by 25% from previous reduced sizes)
   const sizeMap = {
     sm: {
-      full: { width: 70, height: 28 },
-      icon: { width: 21, height: 21 },
-      text: { width: 56, height: 14 }
-    },
-    md: {
-      full: { width: 84, height: 34 },
-      icon: { width: 28, height: 28 },
+      full: { width: 88, height: 35 },
+      icon: { width: 26, height: 26 },
       text: { width: 70, height: 18 }
     },
-    lg: {
-      full: { width: 112, height: 45 },
+    md: {
+      full: { width: 105, height: 43 },
       icon: { width: 35, height: 35 },
-      text: { width: 84, height: 21 }
+      text: { width: 88, height: 23 }
+    },
+    lg: {
+      full: { width: 140, height: 56 },
+      icon: { width: 44, height: 44 },
+      text: { width: 105, height: 26 }
     }
   };
   

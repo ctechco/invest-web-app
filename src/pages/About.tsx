@@ -10,21 +10,21 @@ const About = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      <main className="flex-grow pt-24">
-        {/* Hero Section */}
-        <section className="bg-futurewave-blue text-white py-16">
+      <main className="flex-grow pt-16">
+        {/* Page Header */}
+        <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Wave</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">About Future Wave</h1>
               <p className="text-lg opacity-90">
-                Our mission is to empower our clients to achieve financial freedom through expert guidance and personalized investment strategies.
+                Your trusted partner in building wealth and securing financial futures through expert guidance and innovative investment strategies.
               </p>
             </div>
           </div>
         </section>
         
         {/* Our Story Section */}
-        <section className="py-16">
+        <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold heading-gradient mb-8 text-center">Our Story</h2>
