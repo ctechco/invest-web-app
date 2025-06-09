@@ -122,11 +122,19 @@ const Authentication = () => {
         <Navbar />
       )}
       
+      {/* Logo Section - positioned above the header */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
+            <LogoLink className="inline-block" size="md" variant="full" />
+          </div>
+        </div>
+      </section>
+      
       {/* Page Header */}
       <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <LogoLink className="inline-block mb-6" size="md" variant="full" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Account Access</h1>
             <p className="text-xl md:text-2xl opacity-90 mb-4">
               Welcome to Future Wave
