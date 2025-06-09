@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -120,14 +121,25 @@ const Authentication = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6 flex items-center justify-center`}>
-        <div className="w-full max-w-md">
-          <div className="text-center mb-6">
-            <LogoLink className="inline-block" size="md" />
-            <h2 className="text-2xl font-bold mt-4 text-gray-800">Welcome to Future Wave</h2>
-            <p className="text-gray-600">Access your investment account</p>
+      
+      {/* Page Header */}
+      <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <LogoLink className="inline-block mb-6" size="md" variant="full" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Account Access</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Welcome to Future Wave
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Access your investment account to track your portfolio, analyze market data, and manage your financial future with our comprehensive platform.
+            </p>
           </div>
-
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6 flex items-center justify-center`}>
+        <div className="w-full max-w-md">
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6">
               <TabsTrigger value="login">Login</TabsTrigger>

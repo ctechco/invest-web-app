@@ -19,9 +19,25 @@ const Blog = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      
+      {/* Page Header */}
+      <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Investment Insights</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Expert Analysis & Market Commentary
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Stay informed with the latest investment insights, market analysis, and expert commentary from our team of financial professionals.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold mb-6">Investment Insights</h1>
+          <h2 className="text-2xl font-bold mb-6">Latest Articles</h2>
           
           {/* Search bar */}
           <div className="relative mb-8">
@@ -42,7 +58,7 @@ const Blog = () => {
                   <span className="bg-futurewave-purple text-white text-xs px-2 py-1 rounded mr-2">Featured</span>
                   <span className="text-gray-500 text-sm">May 9, 2025</span>
                 </div>
-                <h2 className="text-2xl font-bold mb-3">The Future of Sustainable Investing</h2>
+                <h3 className="text-2xl font-bold mb-3">The Future of Sustainable Investing</h3>
                 <p className="text-gray-700 mb-4">
                   As environmental concerns grow, investors are increasingly focusing on sustainable and ESG investments. 
                   Learn how this shift is changing the investment landscape and creating new opportunities.
@@ -66,7 +82,7 @@ const Blog = () => {
                   <div className="bg-gray-200 h-40"></div>
                   <div className="p-4">
                     <div className="text-gray-500 text-xs mb-2">May {9 - item}, 2025</div>
-                    <h3 className="font-bold mb-2">Top Investment Trends for 2025</h3>
+                    <h4 className="font-bold mb-2">Top Investment Trends for 2025</h4>
                     <p className="text-sm text-gray-600 line-clamp-3 mb-3">
                       With rapid technological advancements and changing economic conditions, investors need to stay ahead of emerging trends.
                     </p>

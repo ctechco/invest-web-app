@@ -21,10 +21,26 @@ const Support = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      
+      {/* Page Header */}
+      <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Customer Support</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              We're Here to Help
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Get the assistance you need with our comprehensive support options. Our expert team is ready to help you succeed in your investment journey.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold mb-6">Customer Support</h1>
-          <p className="text-gray-600 mb-8">We're here to help. Choose the support option that works best for you.</p>
+          <h2 className="text-2xl font-bold mb-6">How Can We Help You?</h2>
+          <p className="text-gray-600 mb-8">Choose the support option that works best for you, or browse our frequently asked questions below.</p>
           
           {/* Support Options */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -96,7 +112,7 @@ const Support = () => {
           <div className="mb-6">
             <div className="flex items-center mb-4">
               <HelpCircle className="h-6 w-6 text-[#9b87f5] mr-2" />
-              <h2 className="text-xl font-bold">Frequently Asked Questions</h2>
+              <h3 className="text-xl font-bold">Frequently Asked Questions</h3>
             </div>
             
             {[
@@ -119,7 +135,7 @@ const Support = () => {
             ].map((item, index) => (
               <Card key={index} className="mb-3">
                 <CardContent className="p-4">
-                  <h3 className="font-bold mb-2">{item.question}</h3>
+                  <h4 className="font-bold mb-2">{item.question}</h4>
                   <p className="text-gray-600 text-sm">{item.answer}</p>
                 </CardContent>
               </Card>

@@ -38,13 +38,29 @@ const Education = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      
+      {/* Page Header */}
+      <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Investment Education</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Knowledge for Financial Success
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Expand your investment knowledge with our comprehensive educational resources, expert insights, and practical guidance to build your financial expertise.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl font-bold mb-6">Investment Education</h1>
-          <p className="text-gray-600 mb-8">Expand your investment knowledge with our educational resources.</p>
+          <h2 className="text-2xl font-bold mb-6">Learn at Your Own Pace</h2>
+          <p className="text-gray-600 mb-8">Choose from our extensive library of educational materials designed for all experience levels.</p>
           
           {/* Featured Resources */}
-          <h2 className="text-xl font-bold mb-4">Featured Resources</h2>
+          <h3 className="text-xl font-bold mb-4">Featured Resources</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <Link to="/education/investing-basics">
               <Card className="hover:shadow-lg transition-shadow h-full">
@@ -93,7 +109,7 @@ const Education = () => {
           </div>
           
           {/* Latest Articles */}
-          <h2 className="text-xl font-bold mb-4">Latest Articles</h2>
+          <h3 className="text-xl font-bold mb-4">Latest Articles</h3>
           <div className="space-y-4 mb-10">
             <Link to="/education/articles/etf-vs-mutual-funds">
               <Card>
@@ -101,7 +117,7 @@ const Education = () => {
                   <div className="flex items-start">
                     <FileText className="h-5 w-5 text-[#9b87f5] mr-3 mt-1" />
                     <div>
-                      <h3 className="font-bold mb-1">Understanding ETFs vs. Mutual Funds</h3>
+                      <h4 className="font-bold mb-1">Understanding ETFs vs. Mutual Funds</h4>
                       <p className="text-sm text-gray-700 line-clamp-2 mb-2">
                         A detailed comparison of exchange-traded funds and mutual funds, exploring their advantages and disadvantages.
                       </p>
@@ -118,7 +134,7 @@ const Education = () => {
                   <div className="flex items-start">
                     <FileText className="h-5 w-5 text-[#9b87f5] mr-3 mt-1" />
                     <div>
-                      <h3 className="font-bold mb-1">Tax-Efficient Investing Strategies</h3>
+                      <h4 className="font-bold mb-1">Tax-Efficient Investing Strategies</h4>
                       <p className="text-sm text-gray-700 line-clamp-2 mb-2">
                         Learn how to minimize tax liability while maximizing investment returns through strategic planning.
                       </p>
@@ -135,7 +151,7 @@ const Education = () => {
                   <div className="flex items-start">
                     <FileText className="h-5 w-5 text-[#9b87f5] mr-3 mt-1" />
                     <div>
-                      <h3 className="font-bold mb-1">Navigating Market Volatility</h3>
+                      <h4 className="font-bold mb-1">Navigating Market Volatility</h4>
                       <p className="text-sm text-gray-700 line-clamp-2 mb-2">
                         Expert tips on maintaining a long-term perspective during periods of market uncertainty and price fluctuations.
                       </p>
@@ -148,7 +164,7 @@ const Education = () => {
           </div>
           
           {/* Video Tutorials */}
-          <h2 className="text-xl font-bold mb-4">Video Tutorials</h2>
+          <h3 className="text-xl font-bold mb-4">Video Tutorials</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {videoTutorials.map(video => (
               <VideoModal

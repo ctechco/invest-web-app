@@ -53,7 +53,23 @@ const MarketData = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      
+      {/* Page Header */}
+      <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Market Data</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Real-Time Financial Insights
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Stay informed with up-to-the-minute market data, stock prices, and financial news to make confident investment decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           {/* Search bar */}
           <div className="relative mb-6">
