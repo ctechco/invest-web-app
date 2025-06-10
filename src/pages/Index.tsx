@@ -33,25 +33,25 @@ const Index = () => {
           {/* Quick Actions */}
           <div className="grid grid-cols-2 gap-4 mb-10">
             <Link to="/market-data">
-              <Button className="w-full h-20 bg-[#9b87f5] hover:bg-[#8a74e8] flex flex-col items-center justify-center">
+              <Button className="w-full h-20 bg-futurewave-purple hover:bg-futurewave-purple/90 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Market Data</span>
                 <span className="text-xs">Check trends</span>
               </Button>
             </Link>
             <Link to="/tools">
-              <Button className="w-full h-20 bg-white text-[#9b87f5] border border-[#9b87f5] hover:bg-gray-50 flex flex-col items-center justify-center">
+              <Button className="w-full h-20 bg-white text-futurewave-purple border border-futurewave-purple hover:bg-gray-50 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Investment Tools</span>
                 <span className="text-xs">Plan your future</span>
               </Button>
             </Link>
             <Link to="/dashboard">
-              <Button className="w-full h-20 bg-white text-[#9b87f5] border border-[#9b87f5] hover:bg-gray-50 flex flex-col items-center justify-center">
+              <Button className="w-full h-20 bg-white text-futurewave-purple border border-futurewave-purple hover:bg-gray-50 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Dashboard</span>
                 <span className="text-xs">Track investments</span>
               </Button>
             </Link>
             <Link to="/auth">
-              <Button className="w-full h-20 bg-[#9b87f5] hover:bg-[#8a74e8] flex flex-col items-center justify-center">
+              <Button className="w-full h-20 bg-futurewave-purple hover:bg-futurewave-purple/90 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Sign Up</span>
                 <span className="text-xs">Create account</span>
               </Button>

@@ -16,6 +16,21 @@ const TermsOfService = () => {
         <Navbar />
       )}
       
+      {/* Page Header */}
+      <section className="bg-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Terms of Service</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Legal Terms & Conditions
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Please read these terms carefully as they govern your use of our services and outline your rights and responsibilities.
+            </p>
+          </div>
+        </div>
+      </section>
+      
       <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold mb-6 text-gray-800">Terms of Service</h1>

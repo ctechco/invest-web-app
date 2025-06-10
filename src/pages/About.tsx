@@ -1,31 +1,39 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, TrendingUp, Award } from 'lucide-react';
 
 const About = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      {isMobile ? (
+        <MobileHeader title="About Us" showBackButton={true} />
+      ) : (
+        <Navbar />
+      )}
       
-      <main className="flex-grow pt-16">
-        {/* Main Page Header */}
-        <section className="bg-gradient-to-r from-futurewave-blue to-futurewave-purple text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Wave</h1>
-              <p className="text-xl md:text-2xl opacity-90 mb-4">
-                Building Wealth, Securing Futures
-              </p>
-              <p className="text-lg opacity-80 max-w-3xl mx-auto">
-                Your trusted partner in financial success. We combine expert guidance, innovative strategies, and personalized service to help you achieve your financial goals and build lasting wealth.
-              </p>
-            </div>
+      {/* Page Header */}
+      <section className="bg-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Future Wave</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Building Wealth, Securing Futures
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              Your trusted partner in financial success. We combine expert guidance, innovative strategies, and personalized service to help you achieve your financial goals and build lasting wealth.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'}`}>
         {/* Our Story Header */}
         <section className="py-8">
           <div className="container mx-auto px-4">
@@ -69,9 +77,9 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <CheckCircle className="h-6 w-6 text-futurewave-blue" />
+                    <CheckCircle className="h-6 w-6 text-futurewave-purple" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Integrity</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-purple">Integrity</h3>
                   <p className="text-gray-700">
                     We uphold the highest ethical standards in all our dealings, ensuring transparency and honesty in every interaction with our clients and partners.
                   </p>
@@ -79,9 +87,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <Users className="h-6 w-6 text-futurewave-blue" />
+                    <Users className="h-6 w-6 text-futurewave-purple" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Client Focus</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-purple">Client Focus</h3>
                   <p className="text-gray-700">
                     Our clients' interests always come first. We take time to understand their unique needs and goals, crafting personalized strategies for their success.
                   </p>
@@ -89,9 +97,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <TrendingUp className="h-6 w-6 text-futurewave-blue" />
+                    <TrendingUp className="h-6 w-6 text-futurewave-purple" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Excellence</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-purple">Excellence</h3>
                   <p className="text-gray-700">
                     We strive for excellence in every aspect of our operations, continuously enhancing our expertise, services, and the value we provide to our clients.
                   </p>
@@ -99,9 +107,9 @@ const About = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="bg-blue-50 p-3 w-fit rounded-full mb-4">
-                    <Award className="h-6 w-6 text-futurewave-blue" />
+                    <Award className="h-6 w-6 text-futurewave-purple" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-futurewave-blue">Innovation</h3>
+                  <h3 className="text-xl font-bold mb-3 text-futurewave-purple">Innovation</h3>
                   <p className="text-gray-700">
                     We embrace change and continuously seek innovative solutions to enhance our services and adapt to evolving market conditions and client needs.
                   </p>

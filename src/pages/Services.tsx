@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -168,7 +167,7 @@ const Services = () => {
     { id: 'advisory', label: 'Advisory' }
   ];
 
-  const handleServicePress = (service: Service) => {
+  const handleServiceClick = (service: Service) => {
     setSelectedService(service);
     setIsDrawerOpen(true);
   };
@@ -186,71 +185,30 @@ const Services = () => {
         return true;
       });
 
-  if (isMobile) {
-    return (
-      <>
-        <MobileHeader title="Our Services" showBackButton={false} />
-        
-        {/* Category filter */}
-        <div className="px-4 py-3 overflow-x-auto">
-          <div className="flex space-x-2">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                className={`px-4 py-2 rounded-full text-sm whitespace-nowrap ${
-                  activeCategory === category.id
-                    ? 'bg-quan-blue text-white'
-                    : 'bg-gray-100 text-gray-700'
-                }`}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </div>
-        
-        {/* Services list */}
-        <div className="p-4">
-          {filteredServices.map((service, index) => (
-            <ServiceCard
-              key={index}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              onPress={() => handleServicePress(service)}
-            />
-          ))}
-        </div>
-        
-        {/* Service detail drawer */}
-        <ServiceDetailDrawer
-          service={selectedService}
-          isOpen={isDrawerOpen}
-          onClose={() => setIsDrawerOpen(false)}
-        />
-      </>
-    );
-  }
-
-  // Desktop view remains mostly the same
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      {isMobile ? (
+        <MobileHeader title="Services" showBackButton={true} />
+      ) : (
+        <Navbar />
+      )}
       
-      <main className="flex-grow pt-24">
-        {/* Hero Section */}
-        <section className="bg-quan-blue text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-              <p className="text-lg opacity-90">
-                Comprehensive financial solutions designed to build, protect, and grow your wealth with confidence.
-              </p>
-            </div>
+      {/* Page Header */}
+      <section className="bg-futurewave-purple text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+            <p className="text-xl md:text-2xl opacity-90 mb-4">
+              Comprehensive Financial Solutions
+            </p>
+            <p className="text-lg opacity-80 max-w-3xl mx-auto">
+              From investment management to financial planning, we offer a complete suite of services designed to help you achieve your financial goals and secure your future.
+            </p>
           </div>
-        </section>
-        
+        </div>
+      </section>
+      
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6`}>
         {/* Services Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -384,6 +342,11 @@ const Services = () => {
       </main>
       
       <Footer />
+      <ServiceDetailDrawer 
+        service={selectedService}
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      />
     </div>
   );
 };
