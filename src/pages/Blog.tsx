@@ -2,7 +2,6 @@
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
-import MobileNavBar from '@/components/MobileNavBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -35,7 +34,7 @@ const Blog = () => {
         </div>
       </section>
       
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0 pb-20'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">Latest Articles</h2>
           
@@ -95,7 +94,6 @@ const Blog = () => {
         </div>
       </main>
       <Footer />
-      {isMobile && <MobileNavBar />}
     </div>
   );
 };

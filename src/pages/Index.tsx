@@ -8,7 +8,6 @@ import AboutSection from '@/components/AboutSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import MobileHeader from '@/components/MobileHeader';
-import MobileNavBar from '@/components/MobileNavBar';
 import LiveSupportChat from '@/components/LiveSupportChat';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -28,7 +27,7 @@ const Index = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'}`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16 pb-20'}`}>
         <Hero />
         <div className="container mx-auto px-4 py-8">
           {/* Quick Actions */}
@@ -64,7 +63,6 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-      {isMobile && <MobileNavBar />}
       <LiveSupportChat />
     </div>
   );
