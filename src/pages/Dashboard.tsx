@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useAuth } from '@/hooks/useAuth';
 import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ import TransactionDetailModal from '@/components/dashboard/TransactionDetailModa
 
 const Dashboard = () => {
   const isMobile = useIsMobile();
+  const { user } = useAuth();
   const [portfolioValue, setPortfolioValue] = useState(24568.80);
   const [dailyChange, setDailyChange] = useState({ value: 583.25, percentage: 2.4 });
   const [monthlyReturn, setMonthlyReturn] = useState({ value: -294.83, percentage: -1.2 });
@@ -138,6 +140,8 @@ const Dashboard = () => {
     setIsTransactionDetailOpen(true);
   };
 
+  const userName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Investor';
+
   return (
     <div className="flex flex-col min-h-screen">
       {isMobile ? (
@@ -165,7 +169,7 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
           <div className="mb-6">
-            <h2 className="text-2xl font-bold">Welcome back, Investor</h2>
+            <h2 className="text-2xl font-bold">Welcome back, {userName}</h2>
             <p className="text-gray-600">Here's what's happening with your investments today.</p>
           </div>
           

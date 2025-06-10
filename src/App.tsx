@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -21,7 +22,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import CookieConsent from "./components/CookieConsent";
-import ProtectedRoute from "./components/ProtectedRoute";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 
 // Import the tool pages
 import InvestmentCalculator from "./pages/tools/InvestmentCalculator";
@@ -68,51 +69,53 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <BrowserRouter>
-          <div className="min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
-            <Toaster />
-            <Sonner />
-            <AppShell>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/dashboard" element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } />
-                <Route path="/market-data" element={<MarketData />} />
-                <Route path="/tools" element={<InvestmentTools />} />
-                <Route path="/education" element={<Education />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/support" element={<Support />} />
-                <Route path="/auth" element={<Authentication />} />
-                <Route path="/terms" element={<TermsOfService />} />
-                <Route path="/privacy" element={<PrivacyPolicy />} />
-                <Route path="/cookie-policy" element={<CookiePolicy />} />
-                
-                {/* Add routes for the individual tool pages */}
-                <Route path="/tools/calculator" element={<InvestmentCalculator />} />
-                <Route path="/tools/portfolio-analyzer" element={<PortfolioAnalyzer />} />
-                <Route path="/tools/retirement-planner" element={<RetirementPlanner />} />
-                <Route path="/tools/risk-assessment" element={<RiskAssessment />} />
-                
-                {/* Education subpages */}
-                <Route path="/education/investing-basics" element={<InvestingBasics />} />
-                <Route path="/education/market-analysis" element={<MarketAnalysis />} />
-                <Route path="/education/retirement-planning" element={<RetirementPlanning />} />
-                
-                {/* Education article pages */}
-                <Route path="/education/articles/etf-vs-mutual-funds" element={<ETFvsMutualFunds />} />
-                <Route path="/education/articles/tax-efficient-investing" element={<TaxEfficientInvesting />} />
-                <Route path="/education/articles/market-volatility" element={<MarketVolatility />} />
-                
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AppShell>
-            <CookieConsent />
-          </div>
+          <AuthProvider>
+            <div className="min-h-screen" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+              <Toaster />
+              <Sonner />
+              <AppShell>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/dashboard" element={
+                    <AuthenticatedRoute>
+                      <Dashboard />
+                    </AuthenticatedRoute>
+                  } />
+                  <Route path="/market-data" element={<MarketData />} />
+                  <Route path="/tools" element={<InvestmentTools />} />
+                  <Route path="/education" element={<Education />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/support" element={<Support />} />
+                  <Route path="/auth" element={<Authentication />} />
+                  <Route path="/terms" element={<TermsOfService />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/cookie-policy" element={<CookiePolicy />} />
+                  
+                  {/* Add routes for the individual tool pages */}
+                  <Route path="/tools/calculator" element={<InvestmentCalculator />} />
+                  <Route path="/tools/portfolio-analyzer" element={<PortfolioAnalyzer />} />
+                  <Route path="/tools/retirement-planner" element={<RetirementPlanner />} />
+                  <Route path="/tools/risk-assessment" element={<RiskAssessment />} />
+                  
+                  {/* Education subpages */}
+                  <Route path="/education/investing-basics" element={<InvestingBasics />} />
+                  <Route path="/education/market-analysis" element={<MarketAnalysis />} />
+                  <Route path="/education/retirement-planning" element={<RetirementPlanning />} />
+                  
+                  {/* Education article pages */}
+                  <Route path="/education/articles/etf-vs-mutual-funds" element={<ETFvsMutualFunds />} />
+                  <Route path="/education/articles/tax-efficient-investing" element={<TaxEfficientInvesting />} />
+                  <Route path="/education/articles/market-volatility" element={<MarketVolatility />} />
+                  
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </AppShell>
+              <CookieConsent />
+            </div>
+          </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

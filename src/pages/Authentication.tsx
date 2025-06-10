@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useAuth } from '@/hooks/useAuth';
 import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -35,13 +36,15 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Authentication = () => {
   const isMobile = useIsMobile();
+  const { user, signIn, signUp, resetPassword } = useAuth();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
   
@@ -51,27 +54,75 @@ const Authentication = () => {
     }
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
+
+  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call and set user as authenticated
-    setTimeout(() => {
-      setIsLoading(false);
-      localStorage.setItem('userAuthenticated', 'true');
+    
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+
+    const { error } = await signIn(email, password);
+    
+    if (error) {
+      toast.error(error.message || 'Failed to sign in');
+    } else {
       toast.success('Successfully signed in!');
-      // Redirect to dashboard or previous page
-      window.location.href = '/dashboard';
-    }, 1500);
+      navigate('/dashboard');
+    }
+    
+    setIsLoading(false);
   };
 
-  const handleForgotPassword = (data: { email: string }) => {
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsLoading(true);
-    // Simulate password reset email
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('registerEmail') as string;
+    const password = formData.get('registerPassword') as string;
+    const confirmPassword = formData.get('confirmPassword') as string;
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const fullName = `${firstName} ${lastName}`.trim();
+
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
       setIsLoading(false);
+      return;
+    }
+
+    const { error } = await signUp(email, password, fullName);
+    
+    if (error) {
+      toast.error(error.message || 'Failed to create account');
+    } else {
+      toast.success('Account created successfully! Please check your email for verification.');
+    }
+    
+    setIsLoading(false);
+  };
+
+  const handleForgotPassword = async (data: { email: string }) => {
+    setIsLoading(true);
+    
+    const { error } = await resetPassword(data.email);
+    
+    if (error) {
+      toast.error(error.message || 'Failed to send reset email');
+    } else {
       toast.success(`Password reset link sent to ${data.email}`);
       setForgotPasswordOpen(false);
-    }, 1500);
+    }
+    
+    setIsLoading(false);
   };
 
   const ForgotPasswordForm = () => (
@@ -110,7 +161,7 @@ const Authentication = () => {
   );
 
   const ForgotPasswordTrigger = 
-    <button className="text-xs text-[#9b87f5] hover:underline">
+    <button type="button" className="text-xs text-[#9b87f5] hover:underline">
       Forgot password?
     </button>;
 
@@ -122,7 +173,7 @@ const Authentication = () => {
         <Navbar />
       )}
       
-      {/* Logo Section - positioned above the header */}
+      {/* Logo Section */}
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
@@ -163,10 +214,10 @@ const Authentication = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSignIn} className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="name@example.com" required />
+                      <Input id="email" name="email" type="email" placeholder="name@example.com" required />
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
@@ -205,7 +256,7 @@ const Authentication = () => {
                           </Dialog>
                         )}
                       </div>
-                      <Input id="password" type="password" required />
+                      <Input id="password" name="password" type="password" required />
                     </div>
                     <div className="flex items-center space-x-2">
                       <Checkbox id="remember" />
@@ -233,28 +284,28 @@ const Authentication = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSignUp} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" required />
+                        <Input id="firstName" name="firstName" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" required />
+                        <Input id="lastName" name="lastName" required />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="registerEmail">Email</Label>
-                      <Input id="registerEmail" type="email" placeholder="name@example.com" required />
+                      <Input id="registerEmail" name="registerEmail" type="email" placeholder="name@example.com" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="registerPassword">Password</Label>
-                      <Input id="registerPassword" type="password" required />
+                      <Input id="registerPassword" name="registerPassword" type="password" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="confirmPassword">Confirm Password</Label>
-                      <Input id="confirmPassword" type="password" required />
+                      <Input id="confirmPassword" name="confirmPassword" type="password" required />
                     </div>
                     <div className="flex items-center space-x-2">
                       <Checkbox id="terms" required />
@@ -262,7 +313,7 @@ const Authentication = () => {
                         htmlFor="terms"
                         className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                       >
-                        I agree to the <Link to="/terms" className="text-[#9b87f5] hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-[#9b87f5] hover:underline">Privacy Policy</Link>
+                        I agree to the Terms of Service and Privacy Policy
                       </label>
                     </div>
                     <Button type="submit" className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" disabled={isLoading}>
