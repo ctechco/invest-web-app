@@ -1,330 +1,250 @@
-import React, { useState, useEffect } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
-import { LogoLink } from '@/components/Logo';
-import { 
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from '@/components/ui/dialog';
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger
-} from '@/components/ui/drawer';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Eye, EyeOff } from 'lucide-react';
 
 const Authentication = () => {
   const isMobile = useIsMobile();
-  const { user, signIn, signUp, resetPassword } = useAuth();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const { signIn, signUp, resetPassword } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
-  
-  const form = useForm({
-    defaultValues: {
-      email: '',
-    }
+  const [message, setMessage] = useState('');
+
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
   });
 
-  // Redirect if already authenticated
-  useEffect(() => {
-    if (user) {
-      navigate('/dashboard');
-    }
-  }, [user, navigate]);
+  const [signupData, setSignupData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    fullName: ''
+  });
 
-  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [resetEmail, setResetEmail] = useState('');
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setMessage('');
     
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-
-    const { error } = await signIn(email, password);
-    
-    if (error) {
-      toast.error(error.message || 'Failed to sign in');
-    } else {
-      toast.success('Successfully signed in!');
+    try {
+      await signIn(loginData.email, loginData.password);
       navigate('/dashboard');
+    } catch (error: any) {
+      setMessage(error.message || 'Failed to sign in');
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
-  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('registerEmail') as string;
-    const password = formData.get('registerPassword') as string;
-    const confirmPassword = formData.get('confirmPassword') as string;
-    const firstName = formData.get('firstName') as string;
-    const lastName = formData.get('lastName') as string;
-    const fullName = `${firstName} ${lastName}`.trim();
-
-    if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
-      setIsLoading(false);
+    if (signupData.password !== signupData.confirmPassword) {
+      setMessage('Passwords do not match');
       return;
     }
-
-    const { error } = await signUp(email, password, fullName);
     
-    if (error) {
-      toast.error(error.message || 'Failed to create account');
-    } else {
-      toast.success('Account created successfully! Please check your email for verification.');
-    }
-    
-    setIsLoading(false);
-  };
-
-  const handleForgotPassword = async (data: { email: string }) => {
     setIsLoading(true);
+    setMessage('');
     
-    const { error } = await resetPassword(data.email);
-    
-    if (error) {
-      toast.error(error.message || 'Failed to send reset email');
-    } else {
-      toast.success(`Password reset link sent to ${data.email}`);
-      setForgotPasswordOpen(false);
+    try {
+      await signUp(signupData.email, signupData.password, signupData.fullName);
+      setMessage('Check your email for the confirmation link');
+    } catch (error: any) {
+      setMessage(error.message || 'Failed to sign up');
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
-  const ForgotPasswordForm = () => (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleForgotPassword)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="name@example.com" 
-                  type="email" 
-                  {...field} 
-                  required 
-                />
-              </FormControl>
-              <FormDescription>
-                We'll send you a link to reset your password.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button 
-          type="submit" 
-          className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" 
-          disabled={isLoading}
-        >
-          {isLoading ? 'Sending...' : 'Reset Password'}
-        </Button>
-      </form>
-    </Form>
-  );
-
-  const ForgotPasswordTrigger = 
-    <button type="button" className="text-xs text-[#9b87f5] hover:underline">
-      Forgot password?
-    </button>;
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setMessage('');
+    
+    try {
+      await resetPassword(resetEmail);
+      setMessage('Check your email for password reset instructions');
+    } catch (error: any) {
+      setMessage(error.message || 'Failed to send reset email');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       {isMobile ? (
-        <MobileHeader title="Account Access" showBackButton={true} />
+        <MobileHeader title="Authentication" showBackButton={true} />
       ) : (
         <Navbar />
       )}
       
-      {/* Logo Section */}
-      <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center">
-            <LogoLink className="inline-block" size="md" variant="full" />
-          </div>
-        </div>
-      </section>
-      
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Account Access</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Welcome to Future Wave
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              Access your investment account to track your portfolio, analyze market data, and manage your financial future with our comprehensive platform.
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+        <div className="max-w-md mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-futurewave-purple mb-4">Welcome to Future Wave</h2>
+            <p className="text-lg text-gray-600">
+              Sign in to your account or create a new one to get started.
             </p>
           </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6 flex items-center justify-center`}>
-        <div className="w-full max-w-md">
-          <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="login">Login</TabsTrigger>
-              <TabsTrigger value="register">Register</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="login">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Account Login</CardTitle>
-                  <CardDescription>
-                    Enter your credentials to access your dashboard
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSignIn} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" name="email" type="email" placeholder="name@example.com" required />
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center">Get Started</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Tabs defaultValue="login" className="w-full">
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="login">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                  <TabsTrigger value="reset">Reset</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="login">
+                  <form onSubmit={handleLogin} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <Input
+                        type="email"
+                        value={loginData.email}
+                        onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        required
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <Label htmlFor="password">Password</Label>
-                        {isMobile ? (
-                          <Drawer open={forgotPasswordOpen} onOpenChange={setForgotPasswordOpen}>
-                            <DrawerTrigger asChild>
-                              {ForgotPasswordTrigger}
-                            </DrawerTrigger>
-                            <DrawerContent>
-                              <DrawerHeader>
-                                <DrawerTitle>Forgot Password</DrawerTitle>
-                                <DrawerDescription>
-                                  Enter your email address below to receive a password reset link.
-                                </DrawerDescription>
-                              </DrawerHeader>
-                              <div className="p-4">
-                                <ForgotPasswordForm />
-                              </div>
-                            </DrawerContent>
-                          </Drawer>
-                        ) : (
-                          <Dialog open={forgotPasswordOpen} onOpenChange={setForgotPasswordOpen}>
-                            <DialogTrigger asChild>
-                              {ForgotPasswordTrigger}
-                            </DialogTrigger>
-                            <DialogContent>
-                              <DialogHeader>
-                                <DialogTitle>Forgot Password</DialogTitle>
-                                <DialogDescription>
-                                  Enter your email address below to receive a password reset link.
-                                </DialogDescription>
-                              </DialogHeader>
-                              <ForgotPasswordForm />
-                            </DialogContent>
-                          </Dialog>
-                        )}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                      <div className="relative">
+                        <Input
+                          type={showPassword ? "text" : "password"}
+                          value={loginData.password}
+                          onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                          placeholder="Your password"
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                        >
+                          {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                        </button>
                       </div>
-                      <Input id="password" name="password" type="password" required />
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="remember" />
-                      <label
-                        htmlFor="remember"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Remember me
-                      </label>
-                    </div>
-                    <Button type="submit" className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" disabled={isLoading}>
-                      {isLoading ? 'Signing in...' : 'Sign In'}
+                    <Button type="submit" className="w-full bg-futurewave-purple hover:bg-futurewave-purple/90" disabled={isLoading}>
+                      {isLoading ? 'Signing In...' : 'Sign In'}
                     </Button>
                   </form>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            
-            <TabsContent value="register">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Create Account</CardTitle>
-                  <CardDescription>
-                    Start your investment journey with Future Wave
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSignUp} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" name="firstName" required />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" name="lastName" required />
-                      </div>
+                </TabsContent>
+                
+                <TabsContent value="signup">
+                  <form onSubmit={handleSignup} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                      <Input
+                        type="text"
+                        value={signupData.fullName}
+                        onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
+                        placeholder="Your full name"
+                        required
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="registerEmail">Email</Label>
-                      <Input id="registerEmail" name="registerEmail" type="email" placeholder="name@example.com" required />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <Input
+                        type="email"
+                        value={signupData.email}
+                        onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        required
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="registerPassword">Password</Label>
-                      <Input id="registerPassword" name="registerPassword" type="password" required />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                      <Input
+                        type="password"
+                        value={signupData.password}
+                        onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+                        placeholder="Choose a password"
+                        required
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="confirmPassword">Confirm Password</Label>
-                      <Input id="confirmPassword" name="confirmPassword" type="password" required />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                      <Input
+                        type="password"
+                        value={signupData.confirmPassword}
+                        onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
+                        placeholder="Confirm your password"
+                        required
+                      />
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" required />
-                      <label
-                        htmlFor="terms"
-                        className="text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        I agree to the Terms of Service and Privacy Policy
-                      </label>
-                    </div>
-                    <Button type="submit" className="w-full bg-[#9b87f5] hover:bg-[#8a74e8]" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-futurewave-purple hover:bg-futurewave-purple/90" disabled={isLoading}>
                       {isLoading ? 'Creating Account...' : 'Create Account'}
                     </Button>
                   </form>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+                </TabsContent>
+                
+                <TabsContent value="reset">
+                  <form onSubmit={handleResetPassword} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <Input
+                        type="email"
+                        value={resetEmail}
+                        onChange={(e) => setResetEmail(e.target.value)}
+                        placeholder="your@email.com"
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full bg-futurewave-purple hover:bg-futurewave-purple/90" disabled={isLoading}>
+                      {isLoading ? 'Sending...' : 'Reset Password'}
+                    </Button>
+                  </form>
+                </TabsContent>
+              </Tabs>
+              
+              {message && (
+                <div className={`mt-4 p-3 rounded text-sm ${
+                  message.includes('Check your email') 
+                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {message}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+          
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-600">
+              By continuing, you agree to our{' '}
+              <Link to="/terms" className="text-futurewave-purple hover:underline">
+                Terms of Service
+              </Link>{' '}
+              and{' '}
+              <Link to="/privacy" className="text-futurewave-purple hover:underline">
+                Privacy Policy
+              </Link>
+            </p>
+          </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

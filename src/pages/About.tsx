@@ -20,16 +20,16 @@ const About = () => {
       
       <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'}`}>
         {/* Our Story Header */}
-        <section className="py-8">
+        <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold heading-gradient mb-8 text-center">Our Story</h2>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-futurewave-purple mb-4">Our Story</h2>
             </div>
           </div>
         </section>
         
         {/* Our Story Content */}
-        <section className="pb-8">
+        <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="prose max-w-none text-gray-700">
@@ -57,7 +57,7 @@ const About = () => {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold heading-gradient mb-8 text-center">Our Core Values</h2>
+              <h2 className="text-3xl font-bold text-futurewave-purple mb-8 text-center">Our Core Values</h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
