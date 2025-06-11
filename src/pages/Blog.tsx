@@ -19,22 +19,7 @@ const Blog = () => {
         <Navbar />
       )}
       
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Investment Insights</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Expert Analysis & Market Commentary
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              Stay informed with the latest investment insights, market analysis, and expert commentary from our team of financial professionals.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0 pb-20'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16 pb-20'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">Latest Articles</h2>
           

@@ -149,22 +149,7 @@ const Dashboard = () => {
         <Navbar />
       )}
       
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Dashboard</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Your Financial Command Center
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              Monitor your portfolio performance, track investments, and stay informed about your financial progress with real-time data and comprehensive analytics.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
           <div className="mb-6">

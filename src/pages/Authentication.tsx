@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useAuth } from '@/hooks/useAuth';
@@ -197,7 +196,7 @@ const Authentication = () => {
         </div>
       </section>
       
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6 flex items-center justify-center`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6 flex items-center justify-center`}>
         <div className="w-full max-w-md">
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6">

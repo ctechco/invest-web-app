@@ -193,22 +193,7 @@ const Services = () => {
         <Navbar />
       )}
       
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Comprehensive Financial Solutions
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              From investment management to financial planning, we offer a complete suite of services designed to help you achieve your financial goals and secure your future.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'}`}>
         {/* Services Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
@@ -337,16 +322,9 @@ const Services = () => {
           </div>
         </section>
         
-        {/* CTA Section */}
         <CTASection />
       </main>
-      
       <Footer />
-      <ServiceDetailDrawer 
-        service={selectedService}
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-      />
     </div>
   );
 };

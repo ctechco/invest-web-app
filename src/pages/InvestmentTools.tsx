@@ -20,22 +20,7 @@ const InvestmentTools = () => {
         <Navbar />
       )}
       
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Investment Tools</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Smart Analytics for Smarter Investing
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              Use our comprehensive suite of investment tools to analyze opportunities, calculate returns, and make informed financial decisions with confidence.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-0'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">Available Tools</h2>
           <p className="text-gray-600 mb-8">Choose from our collection of professional-grade investment analysis tools.</p>

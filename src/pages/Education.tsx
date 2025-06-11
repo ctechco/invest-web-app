@@ -39,22 +39,7 @@ const Education = () => {
         <Navbar />
       )}
       
-      {/* Page Header */}
-      <section className="bg-futurewave-purple text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Investment Education</h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Knowledge for Financial Success
-            </p>
-            <p className="text-lg opacity-80 max-w-3xl mx-auto">
-              Expand your investment knowledge with our comprehensive educational resources, expert insights, and practical guidance to build your financial expertise.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-0'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">Learn at Your Own Pace</h2>
           <p className="text-gray-600 mb-8">Choose from our extensive library of educational materials designed for all experience levels.</p>
