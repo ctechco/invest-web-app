@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
@@ -13,6 +12,12 @@ import { Textarea } from '@/components/ui/textarea';
 
 const Support = () => {
   const isMobile = useIsMobile();
+
+  const handleStartChat = () => {
+    if ((window as any).liveSupportChat) {
+      (window as any).liveSupportChat.open();
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -46,7 +51,7 @@ const Support = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">Chat with our support team in real time for immediate assistance.</p>
-                  <Button className="bg-[#9b87f5] hover:bg-[#8a74e8] w-full">Start Chat</Button>
+                  <Button onClick={handleStartChat} className="bg-[#9b87f5] hover:bg-[#8a74e8] w-full">Start Chat</Button>
                 </CardContent>
               </Card>
               

@@ -143,6 +143,33 @@ export type Database = {
         }
         Relationships: []
       }
+      support_conversations: {
+        Row: {
+          created_at: string
+          id: string
+          messages: Json
+          status: string
+          updated_at: string
+          visitor_email: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          messages: Json
+          status?: string
+          updated_at?: string
+          visitor_email: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          messages?: Json
+          status?: string
+          updated_at?: string
+          visitor_email?: string
+        }
+        Relationships: []
+      }
       transactions: {
         Row: {
           created_at: string
