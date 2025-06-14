@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BarChart2, PieChart, BookOpen, MoreHorizontal, User } from 'lucide-react';
@@ -73,9 +72,6 @@ const MoreMenu: React.FC = () => {
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link to="/blog" className="w-full">Blog</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link to="/auth" className="w-full">Sign In/Sign Up</Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -16,15 +16,10 @@ const CTASection = () => {
           <p className="text-base md:text-lg text-white opacity-90 mb-6 md:mb-8 px-2">
             Take the first step toward financial freedom. Schedule a consultation with our expert advisors today.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-            <Link to="/tools">
-              <Button size={isMobile ? "default" : "lg"} className="bg-futurewave-accent text-white hover:bg-[#8a955f] hover:text-white text-base md:text-lg px-5 md:px-8">
-                Get Started Today <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Button>
-            </Link>
+          <div className="flex justify-center">
             <Link to="/services">
-              <Button size={isMobile ? "default" : "lg"} className="bg-futurewave-purple border border-white text-white hover:bg-[#8a74e8] hover:text-white text-base md:text-lg px-5 md:px-8 mt-2 sm:mt-0">
-                Learn More About Our Services
+              <Button size={isMobile ? "default" : "lg"} className="bg-futurewave-accent text-white hover:bg-[#8a955f] hover:text-white text-base md:text-lg px-5 md:px-8">
+                Learn More About Our Services <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
           </div>
