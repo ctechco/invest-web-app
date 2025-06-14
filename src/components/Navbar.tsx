@@ -31,9 +31,18 @@ const Navbar = () => {
     <nav className={`${isScrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-white'} shadow-sm fixed w-full top-0 z-50 transition-all duration-300`}>
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <LogoLink to="/" size="sm" />
+          {/* Left spacer to balance the layout */}
+          <div className="flex items-center space-x-4 w-1/3">
+            {/* Empty div for spacing */}
+          </div>
           
-          <div className="flex items-center space-x-4">
+          {/* Centered logo */}
+          <div className="flex justify-center w-1/3">
+            <LogoLink to="/" size="sm" />
+          </div>
+          
+          {/* Right side navigation */}
+          <div className="flex items-center justify-end space-x-4 w-1/3">
             {user ? (
               <UserMenu />
             ) : (
