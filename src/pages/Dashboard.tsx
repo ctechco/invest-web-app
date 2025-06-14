@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useAuth } from '@/hooks/useAuth';
 import MobileHeader from '@/components/MobileHeader';
@@ -16,132 +16,26 @@ import AssetAllocationCard from '@/components/dashboard/AssetAllocationCard';
 import TransactionsSection from '@/components/dashboard/TransactionsSection';
 import TransactionDetailModal from '@/components/dashboard/TransactionDetailModal';
 import DepositModal from '@/components/dashboard/DepositModal';
+import { usePortfolio } from '@/hooks/usePortfolio';
+import { useTransactions } from '@/hooks/useTransactions';
 
 const Dashboard = () => {
   const isMobile = useIsMobile();
   const { user } = useAuth();
-  const [portfolioValue, setPortfolioValue] = useState(24568.80);
-  const [dailyChange, setDailyChange] = useState({ value: 583.25, percentage: 2.4 });
-  const [monthlyReturn, setMonthlyReturn] = useState({ value: -294.83, percentage: -1.2 });
-  const [showAllTransactions, setShowAllTransactions] = useState(false);
-  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
-  const [isTransactionDetailOpen, setIsTransactionDetailOpen] = useState(false);
+  const { portfolioValue, dailyChange, monthlyReturn, addToPortfolio } = usePortfolio(24568.80);
+  const { 
+    transactions, 
+    showAllTransactions, 
+    setShowAllTransactions, 
+    selectedTransaction, 
+    isTransactionDetailOpen, 
+    addTransaction, 
+    handleTransactionClick,
+    closeTransactionDetail
+  } = useTransactions();
+  
   const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
 
-  // Simulated transactions
-  const [transactions, setTransactions] = useState<Transaction[]>([
-    {
-      id: 't1',
-      type: 'Purchase',
-      description: 'AAPL Purchase',
-      date: 'May 7, 2025',
-      amount: 1450.00,
-      status: 'Completed',
-      details: {
-        shares: 8,
-        price: 181.25,
-        fees: 0.00,
-        source: 'Cash Balance'
-      }
-    },
-    {
-      id: 't2',
-      type: 'Sale',
-      description: 'TSLA Sale',
-      date: 'May 5, 2025',
-      amount: 2120.50,
-      status: 'Completed',
-      details: {
-        shares: 10,
-        price: 212.05,
-        fees: 0.00,
-        source: 'Portfolio'
-      }
-    },
-    {
-      id: 't3',
-      type: 'Deposit',
-      description: 'Deposit',
-      date: 'May 1, 2025',
-      amount: 5000.00,
-      status: 'Completed',
-      details: {
-        source: 'Bank Transfer - ****4567'
-      }
-    },
-    {
-      id: 't4',
-      type: 'Withdrawal',
-      description: 'Withdrawal',
-      date: 'April 15, 2025',
-      amount: 1000.00,
-      status: 'Completed',
-      details: {
-        source: 'To Bank Account - ****4567'
-      }
-    },
-    {
-      id: 't5',
-      type: 'Purchase',
-      description: 'NVDA Purchase',
-      date: 'April 10, 2025',
-      amount: 3650.25,
-      status: 'Completed',
-      details: {
-        shares: 15,
-        price: 243.35,
-        fees: 0.00,
-        source: 'Cash Balance'
-      }
-    },
-    {
-      id: 't6',
-      type: 'Dividend',
-      description: 'MSFT Dividend',
-      date: 'April 5, 2025',
-      amount: 120.75,
-      status: 'Completed',
-      details: {
-        source: '25 shares @ $4.83/share'
-      }
-    }
-  ]);
-
-  // Simulated real-time updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Update portfolio value with small random fluctuations
-      setPortfolioValue(prev => {
-        const change = prev * (Math.random() * 0.002 - 0.001);
-        return +(prev + change).toFixed(2);
-      });
-      
-      // Update daily change
-      setDailyChange(prev => {
-        const newValue = +(prev.value + (Math.random() * 10 - 5)).toFixed(2);
-        const newPercentage = +(newValue / portfolioValue * 100).toFixed(2);
-        return { value: newValue, percentage: newPercentage };
-      });
-      
-      // Update monthly return occasionally
-      if (Math.random() > 0.7) {
-        setMonthlyReturn(prev => {
-          const newValue = +(prev.value + (Math.random() * 20 - 10)).toFixed(2);
-          const newPercentage = +(newValue / portfolioValue * 100).toFixed(2);
-          return { value: newValue, percentage: newPercentage };
-        });
-      }
-    }, 3000);
-    
-    return () => clearInterval(interval);
-  }, [portfolioValue]);
-
-  // Handle transaction click
-  const handleTransactionClick = (transaction: Transaction) => {
-    setSelectedTransaction(transaction);
-    setIsTransactionDetailOpen(true);
-  };
-  
   const handleDeposit = (amount: number) => {
     const newTransaction: Transaction = {
       id: `t-${Date.now()}`,
@@ -159,8 +53,8 @@ const Dashboard = () => {
       },
     };
 
-    setTransactions(prev => [newTransaction, ...prev]);
-    setPortfolioValue(prev => prev + amount);
+    addTransaction(newTransaction);
+    addToPortfolio(amount);
     setIsDepositModalOpen(false);
   };
 
@@ -224,7 +118,7 @@ const Dashboard = () => {
           <TransactionDetailModal
             transaction={selectedTransaction}
             isOpen={isTransactionDetailOpen}
-            onClose={() => setIsTransactionDetailOpen(false)}
+            onClose={closeTransactionDetail}
           />
 
           {/* Deposit Modal */}

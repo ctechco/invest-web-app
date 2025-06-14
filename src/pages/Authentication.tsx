@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
+import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileHeader from '@/components/MobileHeader';
 import Navbar from '@/components/Navbar';
@@ -11,79 +10,25 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Eye, EyeOff } from 'lucide-react';
+import { useAuthForm } from '@/hooks/useAuthForm';
 
 const Authentication = () => {
   const isMobile = useIsMobile();
-  const navigate = useNavigate();
-  const { signIn, signUp, resetPassword } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const {
+    isLoading,
+    message,
+    loginData,
+    setLoginData,
+    signupData,
+    setSignupData,
+    resetEmail,
+    setResetEmail,
+    handleLogin,
+    handleSignup,
+    handleResetPassword,
+  } = useAuthForm();
 
-  const [loginData, setLoginData] = useState({
-    email: '',
-    password: ''
-  });
-
-  const [signupData, setSignupData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    fullName: ''
-  });
-
-  const [resetEmail, setResetEmail] = useState('');
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setMessage('');
-    
-    try {
-      await signIn(loginData.email, loginData.password);
-      navigate('/dashboard');
-    } catch (error: any) {
-      setMessage(error.message || 'Failed to sign in');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (signupData.password !== signupData.confirmPassword) {
-      setMessage('Passwords do not match');
-      return;
-    }
-    
-    setIsLoading(true);
-    setMessage('');
-    
-    try {
-      await signUp(signupData.email, signupData.password, signupData.fullName);
-      setMessage('Check your email for the confirmation link');
-    } catch (error: any) {
-      setMessage(error.message || 'Failed to sign up');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleResetPassword = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setMessage('');
-    
-    try {
-      await resetPassword(resetEmail);
-      setMessage('Check your email for password reset instructions');
-    } catch (error: any) {
-      setMessage(error.message || 'Failed to send reset email');
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -94,7 +39,6 @@ const Authentication = () => {
       )}
       
       <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'}`}>
-        {/* Header Section */}
         <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
