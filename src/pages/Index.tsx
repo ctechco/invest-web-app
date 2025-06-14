@@ -31,7 +31,7 @@ const Index = () => {
         <Hero />
         <div className="container mx-auto px-4 py-8">
           {/* Quick Actions */}
-          <div className="grid grid-cols-2 gap-4 mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
             <Link to="/market-data">
               <Button className="w-full h-20 bg-futurewave-purple hover:bg-futurewave-purple/90 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Market Data</span>
@@ -48,12 +48,6 @@ const Index = () => {
               <Button className="w-full h-20 bg-white text-futurewave-purple border border-futurewave-purple hover:bg-gray-50 flex flex-col items-center justify-center">
                 <span className="text-lg font-medium">Dashboard</span>
                 <span className="text-xs">Track investments</span>
-              </Button>
-            </Link>
-            <Link to="/auth">
-              <Button className="w-full h-20 bg-futurewave-purple hover:bg-futurewave-purple/90 flex flex-col items-center justify-center">
-                <span className="text-lg font-medium">Sign Up</span>
-                <span className="text-xs">Create account</span>
               </Button>
             </Link>
           </div>
