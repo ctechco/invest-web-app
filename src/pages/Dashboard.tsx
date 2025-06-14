@@ -15,6 +15,7 @@ import PerformanceCards from '@/components/dashboard/PerformanceCards';
 import AssetAllocationCard from '@/components/dashboard/AssetAllocationCard';
 import TransactionsSection from '@/components/dashboard/TransactionsSection';
 import TransactionDetailModal from '@/components/dashboard/TransactionDetailModal';
+import DepositModal from '@/components/dashboard/DepositModal';
 
 const Dashboard = () => {
   const isMobile = useIsMobile();
@@ -25,6 +26,7 @@ const Dashboard = () => {
   const [showAllTransactions, setShowAllTransactions] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
   const [isTransactionDetailOpen, setIsTransactionDetailOpen] = useState(false);
+  const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
 
   // Simulated transactions
   const [transactions, setTransactions] = useState<Transaction[]>([
@@ -139,6 +141,28 @@ const Dashboard = () => {
     setSelectedTransaction(transaction);
     setIsTransactionDetailOpen(true);
   };
+  
+  const handleDeposit = (amount: number) => {
+    const newTransaction: Transaction = {
+      id: `t-${Date.now()}`,
+      type: 'Deposit',
+      description: 'Manual Deposit',
+      date: new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }),
+      amount,
+      status: 'Completed',
+      details: {
+        source: 'Cash Balance',
+      },
+    };
+
+    setTransactions(prev => [newTransaction, ...prev]);
+    setPortfolioValue(prev => prev + amount);
+    setIsDepositModalOpen(false);
+  };
 
   const userName = user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Investor';
 
@@ -153,9 +177,17 @@ const Dashboard = () => {
       <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-20'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold">Welcome back, {userName}</h2>
-            <p className="text-gray-600">Here's what's happening with your investments today.</p>
+          <div className="mb-6 flex justify-between items-center flex-wrap gap-2">
+            <div>
+              <h2 className="text-2xl font-bold">Welcome back, {userName}</h2>
+              <p className="text-gray-600">Here's what's happening with your investments today.</p>
+            </div>
+            <Button 
+              onClick={() => setIsDepositModalOpen(true)}
+              className="bg-futurewave-purple hover:bg-futurewave-purple/90"
+            >
+              Make a Deposit
+            </Button>
           </div>
           
           {/* Portfolio Value */}
@@ -193,6 +225,13 @@ const Dashboard = () => {
             transaction={selectedTransaction}
             isOpen={isTransactionDetailOpen}
             onClose={() => setIsTransactionDetailOpen(false)}
+          />
+
+          {/* Deposit Modal */}
+          <DepositModal
+            isOpen={isDepositModalOpen}
+            onClose={() => setIsDepositModalOpen(false)}
+            onDeposit={handleDeposit}
           />
         </div>
       </main>
