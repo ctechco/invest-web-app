@@ -18,12 +18,15 @@ const About = () => {
         <Navbar />
       )}
       
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'}`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-20'}`}>
         {/* Our Story Header */}
-        <section className="py-8 bg-gray-50">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-futurewave-purple mb-4">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-futurewave-purple mb-4">Our Story</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Building trust through transparent financial guidance and innovative investment solutions.
+              </p>
             </div>
           </div>
         </section>

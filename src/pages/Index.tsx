@@ -27,7 +27,7 @@ const Index = () => {
       ) : (
         <Navbar />
       )}
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16 pb-20'}`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-20 pb-20'}`}>
         <Hero />
         <div className="container mx-auto px-4 py-8">
           {/* Quick Actions */}

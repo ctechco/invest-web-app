@@ -19,12 +19,15 @@ const Blog = () => {
         <Navbar />
       )}
       
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'}`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-20'}`}>
         {/* Header Section */}
-        <section className="py-8 bg-gray-50">
+        <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-futurewave-purple mb-4">Latest Articles</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-futurewave-purple mb-4">Latest Articles</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Stay informed with our expert insights on market trends, investment strategies, and financial planning.
+              </p>
             </div>
           </div>
         </section>

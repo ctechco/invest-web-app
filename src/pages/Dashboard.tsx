@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useAuth } from '@/hooks/useAuth';
@@ -149,7 +150,7 @@ const Dashboard = () => {
         <Navbar />
       )}
       
-      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0 pb-20' : 'pt-20'} px-4 py-6`}>
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
           <div className="mb-6">

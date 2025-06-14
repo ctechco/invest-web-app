@@ -16,7 +16,7 @@ const TermsOfService = () => {
         <Navbar />
       )}
       
-      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-14 md:pt-16'} px-4 py-6`}>
+      <main className={`flex-grow ${isMobile ? 'pt-0' : 'pt-20'} px-4 py-6`}>
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold mb-6 text-gray-800">Terms of Service</h1>
           
