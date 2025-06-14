@@ -111,7 +111,7 @@ const LiveSupportChat = () => {
     e.preventDefault();
     if (visitorEmail.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(visitorEmail)) {
       setEmailSubmitted(true);
-      const initialMessages = [
+      const initialMessages: Message[] = [
         {
           id: '1',
           text: 'Hello! Welcome to Future Wave Investments. How can I help you today?',
