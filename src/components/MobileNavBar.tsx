@@ -68,6 +68,12 @@ const MoreMenu: React.FC = () => {
           <Link to="/services" className="w-full">Services</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
+          <Link to="/investment-plans" className="w-full">Investment Plans</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to="/how-it-works" className="w-full">How It Works</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
           <Link to="/tools" className="w-full">Investment Tools</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>

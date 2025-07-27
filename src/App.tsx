@@ -14,6 +14,8 @@ import AppShell from "./components/AppShell";
 import Dashboard from "./pages/Dashboard";
 import MarketData from "./pages/MarketData";
 import InvestmentTools from "./pages/InvestmentTools";
+import InvestmentPlans from "./pages/InvestmentPlans";
+import HowItWorks from "./pages/HowItWorks";
 import Education from "./pages/Education";
 import Blog from "./pages/Blog";
 import Support from "./pages/Support";
@@ -85,6 +87,8 @@ const App = () => {
                   } />
                   <Route path="/market-data" element={<MarketData />} />
                   <Route path="/tools" element={<InvestmentTools />} />
+                  <Route path="/investment-plans" element={<InvestmentPlans />} />
+                  <Route path="/how-it-works" element={<HowItWorks />} />
                   <Route path="/education" element={<Education />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/support" element={<Support />} />

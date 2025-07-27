@@ -43,6 +43,14 @@ const Navbar = () => {
           
           {/* Right side navigation */}
           <div className="flex items-center justify-end space-x-4 w-1/3">
+            <div className="hidden md:flex items-center space-x-6">
+              <Link to="/investment-plans" className="text-gray-700 hover:text-primary transition-colors">
+                Plans
+              </Link>
+              <Link to="/how-it-works" className="text-gray-700 hover:text-primary transition-colors">
+                How It Works
+              </Link>
+            </div>
             {user ? (
               <UserMenu />
             ) : (
