@@ -8,8 +8,9 @@ import { Button } from '@/components/ui/button';
 import Footer from '@/components/Footer';
 import MobileNavBar from '@/components/MobileNavBar';
 import { Transaction } from '@/types/Transaction';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-// Import the new components
+// Import the dashboard components
 import PortfolioValueCard from '@/components/dashboard/PortfolioValueCard';
 import PerformanceCards from '@/components/dashboard/PerformanceCards';
 import AssetAllocationCard from '@/components/dashboard/AssetAllocationCard';
@@ -18,6 +19,10 @@ import TransactionDetailModal from '@/components/dashboard/TransactionDetailModa
 import DepositModal from '@/components/dashboard/DepositModal';
 import { usePortfolio } from '@/hooks/usePortfolio';
 import { useTransactions } from '@/hooks/useTransactions';
+
+// Import the new AI and social features
+import AIAdvisor from '@/components/AIAdvisor';
+import SocialShare from '@/components/SocialShare';
 
 const Dashboard = () => {
   const isMobile = useIsMobile();
@@ -84,35 +89,61 @@ const Dashboard = () => {
             </Button>
           </div>
           
-          {/* Portfolio Value */}
-          <PortfolioValueCard portfolioValue={portfolioValue} dailyChange={dailyChange} />
-          
-          {/* Performance Cards */}
-          <PerformanceCards dailyChange={dailyChange} monthlyReturn={monthlyReturn} />
-          
-          {/* Asset Allocation */}
-          <AssetAllocationCard />
-          
-          {/* Transactions */}
-          <TransactionsSection
-            transactions={transactions}
-            showAllTransactions={showAllTransactions}
-            onShowAllTransactions={() => setShowAllTransactions(true)}
-            onHideAllTransactions={() => setShowAllTransactions(false)}
-            onTransactionClick={handleTransactionClick}
-          />
-          
-          {/* View All Button */}
-          {!showAllTransactions && (
-            <div className="mt-6 text-center">
-              <Button 
-                className="bg-[#9b87f5] text-white hover:bg-[#8a74e8]"
-                onClick={() => setShowAllTransactions(true)}
-              >
-                View All Transactions
-              </Button>
-            </div>
-          )}
+          {/* Dashboard Tabs */}
+          <Tabs defaultValue="overview" className="w-full">
+            <TabsList className="grid w-full grid-cols-4">
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="ai-advisor">AI Advisor</TabsTrigger>
+              <TabsTrigger value="social">Share</TabsTrigger>
+              <TabsTrigger value="transactions">Transactions</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="overview" className="space-y-6">
+              {/* Portfolio Value */}
+              <PortfolioValueCard portfolioValue={portfolioValue} dailyChange={dailyChange} />
+              
+              {/* Performance Cards */}
+              <PerformanceCards dailyChange={dailyChange} monthlyReturn={monthlyReturn} />
+              
+              {/* Asset Allocation */}
+              <AssetAllocationCard />
+            </TabsContent>
+            
+            <TabsContent value="ai-advisor" className="space-y-6">
+              <AIAdvisor />
+            </TabsContent>
+            
+            <TabsContent value="social" className="space-y-6">
+              <SocialShare 
+                portfolioValue={portfolioValue}
+                performance={dailyChange.percentage > 0 ? `+${dailyChange.percentage}%` : `${dailyChange.percentage}%`}
+                symbol="PORTFOLIO"
+              />
+            </TabsContent>
+            
+            <TabsContent value="transactions" className="space-y-6">
+              {/* Transactions */}
+              <TransactionsSection
+                transactions={transactions}
+                showAllTransactions={showAllTransactions}
+                onShowAllTransactions={() => setShowAllTransactions(true)}
+                onHideAllTransactions={() => setShowAllTransactions(false)}
+                onTransactionClick={handleTransactionClick}
+              />
+              
+              {/* View All Button */}
+              {!showAllTransactions && (
+                <div className="mt-6 text-center">
+                  <Button 
+                    className="bg-[#9b87f5] text-white hover:bg-[#8a74e8]"
+                    onClick={() => setShowAllTransactions(true)}
+                  >
+                    View All Transactions
+                  </Button>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
           
           {/* Transaction Detail Modal */}
           <TransactionDetailModal

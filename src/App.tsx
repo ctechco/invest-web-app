@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 import AppShell from "./components/AppShell";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import MarketData from "./pages/MarketData";
 import InvestmentTools from "./pages/InvestmentTools";
 import InvestmentPlans from "./pages/InvestmentPlans";
@@ -83,6 +84,11 @@ const App = () => {
                   <Route path="/dashboard" element={
                     <AuthenticatedRoute>
                       <Dashboard />
+                    </AuthenticatedRoute>
+                  } />
+                  <Route path="/profile" element={
+                    <AuthenticatedRoute>
+                      <Profile />
                     </AuthenticatedRoute>
                   } />
                   <Route path="/market-data" element={<MarketData />} />
